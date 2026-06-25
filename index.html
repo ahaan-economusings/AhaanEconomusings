@@ -374,6 +374,72 @@
       margin: 1.5rem 0 0.5rem;
     }
 
+    /* ── COMMENTS SECTION ── */
+    .comments-section {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 0.5px solid var(--border);
+    }
+    .comments-label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-hint); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .comments-label::after {
+      content: ''; flex: 1; height: 0.5px; background: var(--border);
+    }
+    /* Giscus iframe overrides */
+    .giscus { margin-top: 0; }
+    .giscus-frame { border: none; width: 100%; }
+
+    /* ── ECON TERM HOVER-CARDS ── */
+    .econ-term {
+      border-bottom: 1.5px dotted var(--blue-mid);
+      color: inherit;
+      cursor: help;
+      position: relative;
+      transition: color 0.12s;
+    }
+    .econ-term:hover { color: var(--blue); }
+
+    /* Floating tooltip */
+    #econ-tooltip {
+      position: fixed;
+      z-index: 9999;
+      max-width: 280px;
+      background: var(--gray-900);
+      color: #fff;
+      border-radius: 10px;
+      padding: 0;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.14);
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    #econ-tooltip.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .tooltip-inner {
+      padding: 0.85rem 1rem;
+    }
+    .tooltip-term {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--blue-mid); margin-bottom: 5px;
+    }
+    .tooltip-def {
+      font-size: 13px; line-height: 1.55;
+      color: rgba(255,255,255,0.88);
+    }
+    .tooltip-source {
+      font-size: 10px; color: rgba(255,255,255,0.4);
+      padding: 5px 1rem 8px;
+      border-top: 0.5px solid rgba(255,255,255,0.1);
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 0.5px solid var(--border);
@@ -391,10 +457,20 @@
       nav, .tab-bar { padding: 0 1.25rem; }
       .hero { padding: 2.5rem 1.25rem 2rem; }
       .modal { padding: 1.5rem; }
+      #econ-tooltip { max-width: 230px; }
     }
   </style>
 </head>
 <body>
+
+<!-- Floating econ tooltip -->
+<div id="econ-tooltip">
+  <div class="tooltip-inner">
+    <div class="tooltip-term" id="tt-term"></div>
+    <div class="tooltip-def"  id="tt-def"></div>
+  </div>
+  <div class="tooltip-source" id="tt-src"></div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -468,7 +544,7 @@
     </div>
     <div class="thesis-box">
       <div class="thesis-label">Investment thesis</div>
-      <div class="thesis-text">Nvidia's CUDA ecosystem creates significant switching costs — a classic barrier to entry from microeconomics. As AI model training scales, demand for GPU compute is inelastic in the short run, giving Nvidia real pricing power. I'm watching whether this moat holds as AMD and custom silicon (Google TPU, Apple) start to compete meaningfully.</div>
+      <div class="thesis-text">Nvidia's CUDA ecosystem creates significant <span class="econ-term" data-term="switching-costs">switching costs</span> — a classic <span class="econ-term" data-term="barrier-to-entry">barrier to entry</span> from microeconomics. As AI model training scales, demand for GPU compute is <span class="econ-term" data-term="inelastic-demand">inelastic</span> in the short run, giving Nvidia real <span class="econ-term" data-term="pricing-power">pricing power</span>. I'm watching whether this <span class="econ-term" data-term="moat">economic moat</span> holds as AMD and custom silicon (Google TPU, Apple) start to compete meaningfully.</div>
     </div>
   </div>
 
@@ -488,7 +564,7 @@
     </div>
     <div class="thesis-box">
       <div class="thesis-label">Investment thesis</div>
-      <div class="thesis-text">Azure's cloud growth is tied to enterprise AI adoption, which I expect to follow an S-curve diffusion pattern. Microsoft's OpenAI partnership gives it a distribution advantage — it embeds AI into products already with near-monopoly enterprise penetration. The network effects here are structural and hard to replicate quickly.</div>
+      <div class="thesis-text">Azure's cloud growth is tied to enterprise AI adoption, which I expect to follow an <span class="econ-term" data-term="s-curve">S-curve diffusion</span> pattern. Microsoft's OpenAI partnership gives it a distribution advantage — it embeds AI into products already with near-<span class="econ-term" data-term="monopoly">monopoly</span> enterprise penetration. The <span class="econ-term" data-term="network-effects">network effects</span> here are structural and hard to replicate quickly.</div>
     </div>
   </div>
 
@@ -508,7 +584,7 @@
     </div>
     <div class="thesis-box">
       <div class="thesis-label">Reasoning</div>
-      <div class="thesis-text">Holding cash as optionality — watching for a pullback in semiconductor names before adding a third position. Currently researching ASML (monopoly on EUV lithography) and TSMC as candidates. Optionality has real value in volatile markets; deploying too early is a cost.</div>
+      <div class="thesis-text">Holding cash as <span class="econ-term" data-term="optionality">optionality</span> — watching for a pullback in semiconductor names before adding a third position. Currently researching ASML (<span class="econ-term" data-term="monopoly">monopoly</span> on EUV lithography) and TSMC as candidates. Optionality has real value in <span class="econ-term" data-term="volatile-markets">volatile markets</span>; deploying too early is a cost.</div>
     </div>
   </div>
 
@@ -622,6 +698,11 @@
   <div class="modal" id="modal-content">
     <button class="modal-close" onclick="closePost()">✕</button>
     <div id="modal-inner"></div>
+    <!-- Comments -->
+    <div class="comments-section">
+      <div class="comments-label">Discussion</div>
+      <div id="giscus-container"></div>
+    </div>
   </div>
 </div>
 
@@ -632,52 +713,158 @@
 </footer>
 
 <script>
+  /* ─────────────────────────────────────────
+     ECON GLOSSARY
+     Each key maps to { term, def, source }
+  ───────────────────────────────────────── */
+  const GLOSSARY = {
+    'switching-costs': {
+      term: 'Switching Costs',
+      def:  'The costs a buyer incurs when changing from one supplier or product to another — including time, money, and lost productivity. High switching costs give suppliers pricing power because buyers are "locked in".',
+      src:  'IB Economics HL · Microeconomics'
+    },
+    'barrier-to-entry': {
+      term: 'Barrier to Entry',
+      def:  'Any factor that makes it difficult for new firms to enter a market — such as high capital costs, patents, economies of scale, or established brand loyalty. Barriers protect incumbent firms\' profit margins.',
+      src:  'IB Economics HL · Market Structures'
+    },
+    'inelastic-demand': {
+      term: 'Inelastic Demand',
+      def:  'When demand is unresponsive to price changes — a price increase leads to a proportionally smaller fall in quantity demanded (PED < 1). Common for necessities or products with few close substitutes.',
+      src:  'IB Economics HL · Elasticity'
+    },
+    'pricing-power': {
+      term: 'Pricing Power',
+      def:  'A firm\'s ability to raise prices without losing a significant share of customers to competitors. It emerges from market power, brand strength, or switching costs — and directly protects profit margins.',
+      src:  'IB Economics HL · Microeconomics'
+    },
+    'moat': {
+      term: 'Economic Moat',
+      def:  'Warren Buffett\'s term for a durable competitive advantage that protects a business from rivals — like switching costs, network effects, or cost advantages. Think of it as a castle\'s moat keeping competitors out.',
+      src:  'Finance concept · adapted from IB Economics'
+    },
+    's-curve': {
+      term: 'S-Curve Diffusion',
+      def:  'A pattern where new technologies or products are adopted slowly at first, then rapidly through the mainstream, then plateau as the market saturates. Named for the shape of the adoption curve over time.',
+      src:  'Economics of Innovation · IB Economics'
+    },
+    'monopoly': {
+      term: 'Monopoly',
+      def:  'A market structure where a single seller dominates, with no close substitutes for its product. Monopolists are price-makers and can earn supernormal profit in the long run due to high barriers to entry.',
+      src:  'IB Economics HL · Market Structures'
+    },
+    'network-effects': {
+      term: 'Network Effects',
+      def:  'When a product or service becomes more valuable as more people use it (e.g. social networks, payment systems). Strong network effects create winner-take-all dynamics and are a powerful barrier to entry.',
+      src:  'IB Economics HL · Microeconomics'
+    },
+    'optionality': {
+      term: 'Optionality',
+      def:  'The value of having the right — but not the obligation — to make a decision in the future. In investing, holding cash preserves optionality: you can act when opportunities arise without being forced to sell at a bad time.',
+      src:  'Finance concept · IB Economics (opportunity cost)'
+    },
+    'volatile-markets': {
+      term: 'Market Volatility',
+      def:  'The degree of price fluctuation in a market over time. High volatility means prices swing widely and unpredictably. Measured statistically by standard deviation of returns.',
+      src:  'IB Economics HL · Financial Markets'
+    },
+    'discount-rate': {
+      term: 'Discount Rate',
+      def:  'The rate used to convert future cash flows into their present-day value. A higher discount rate makes future earnings worth less today — which is why rising interest rates tend to lower the value of growth stocks.',
+      src:  'IB Economics HL · Finance'
+    },
+    'present-value': {
+      term: 'Present Value',
+      def:  'The current worth of a future sum of money, given a specific discount rate. Fundamental to stock valuation: a share\'s price should reflect the present value of all its expected future earnings.',
+      src:  'IB Economics HL · Finance'
+    },
+    'long-duration': {
+      term: 'Long-Duration Assets',
+      def:  'Assets whose value is heavily concentrated in cash flows far into the future. Tech growth stocks are long-duration — most of their projected earnings are 5–20 years away — making them highly sensitive to interest rate changes.',
+      src:  'Finance · IB Economics HL'
+    },
+    'capex': {
+      term: 'Capital Expenditure (CapEx)',
+      def:  'Funds spent by a company to acquire or upgrade physical assets — like data centres, manufacturing plants, or infrastructure. High CapEx by cloud companies signals confidence in future demand growth.',
+      src:  'IB Economics HL · Business Finance'
+    },
+    'gdp-correlation': {
+      term: 'GDP Correlation',
+      def:  'A statistical measure of how closely one variable (e.g. oil prices) moves in relation to another (e.g. GDP growth). A correlation of +1 means they move perfectly together; 0 means no relationship.',
+      src:  'IB Economics HL · Macroeconomics'
+    },
+    'diversification': {
+      term: 'Economic Diversification',
+      def:  'A policy strategy where a country (or portfolio) reduces dependence on a single sector or asset by developing new industries. The UAE has pursued diversification away from oil into tourism, finance, and logistics.',
+      src:  'IB Economics HL · Development Economics'
+    },
+    'portfolio-theory': {
+      term: 'Portfolio Theory',
+      def:  'The idea (Markowitz, 1952) that combining assets with low correlations reduces overall portfolio risk without necessarily reducing expected return. Diversification across geographies and sectors is a core principle.',
+      src:  'IB Economics HL · Financial Markets'
+    },
+    'vertical-integration': {
+      term: 'Vertical Integration',
+      def:  'When a firm expands into stages of production it previously relied on others for — either upstream (suppliers) or downstream (distribution). Tech giants building their own chips is backward vertical integration.',
+      src:  'IB Economics HL · Business Strategy'
+    }
+  };
+
+  /* ─────────────────────────────────────────
+     POSTS DATA — with econ-term markup
+  ───────────────────────────────────────── */
   const POSTS = [
     {
       tag: 'AI economics', tagClass: 'tag-ai',
       date: 'June 2026',
+      slug: 'nvidia-pricing-power',
       title: 'Why Nvidia has pricing power — and what could break it',
       body: `
-        <p>In standard microeconomics, we assume that competition erodes pricing power over time. New firms enter, supply increases, margins compress. This is the long-run equilibrium we study in IB Economics. But Nvidia sits in a market where that logic is under strain — and understanding why is more interesting than the stock price itself.</p>
+        <p>In standard microeconomics, we assume that competition erodes <span class="econ-term" data-term="pricing-power">pricing power</span> over time. New firms enter, supply increases, margins compress. This is the long-run equilibrium we study in IB Economics. But Nvidia sits in a market where that logic is under strain — and understanding why is more interesting than the stock price itself.</p>
         <h3>What switching costs actually mean</h3>
-        <p>CUDA is Nvidia's parallel computing platform. It's been the dominant framework for GPU programming since 2006. The key thing to understand is that CUDA isn't just a product — it's an ecosystem. Thousands of AI libraries, tools, and research codebases are written for CUDA. A data centre that switches from Nvidia to a competitor doesn't just buy new hardware; it re-trains engineers, re-tests software, and accepts a period of reduced productivity. These are the switching costs, and they're not trivial.</p>
-        <p>In economics terms, this creates a barrier to entry that isn't primarily about capital. A new competitor can build good GPUs. What they can't easily replicate is two decades of ecosystem development. This is what gives Nvidia inelastic demand in the short run — buyers have limited alternatives even when the price rises.</p>
+        <p>CUDA is Nvidia's parallel computing platform. It's been the dominant framework for GPU programming since 2006. The key thing to understand is that CUDA isn't just a product — it's an ecosystem. Thousands of AI libraries, tools, and research codebases are written for CUDA. A data centre that switches from Nvidia to a competitor doesn't just buy new hardware; it re-trains engineers, re-tests software, and accepts a period of reduced productivity. These are the <span class="econ-term" data-term="switching-costs">switching costs</span>, and they're not trivial.</p>
+        <p>In economics terms, this creates a <span class="econ-term" data-term="barrier-to-entry">barrier to entry</span> that isn't primarily about capital. A new competitor can build good GPUs. What they can't easily replicate is two decades of ecosystem development. This is what gives Nvidia <span class="econ-term" data-term="inelastic-demand">inelastic demand</span> in the short run — buyers have limited alternatives even when the price rises.</p>
         <h3>What could break this</h3>
-        <p>The main threat isn't AMD building better chips. It's vertical integration: Google's TPUs, Apple's Neural Engine, Amazon's Trainium. These are custom chips built to run specific AI workloads internally, bypassing CUDA entirely. If the biggest buyers of compute — the hyperscalers — reduce their dependence on third-party GPUs, Nvidia's moat narrows significantly.</p>
-        <p>I'm watching the hyperscaler capex announcements carefully. The thesis holds as long as external AI demand (startups, mid-size companies, universities) grows faster than internal chip development reduces the top-end market. So far, it does. But it's not permanent.</p>
+        <p>The main threat isn't AMD building better chips. It's <span class="econ-term" data-term="vertical-integration">vertical integration</span>: Google's TPUs, Apple's Neural Engine, Amazon's Trainium. These are custom chips built to run specific AI workloads internally, bypassing CUDA entirely. If the biggest buyers of compute — the hyperscalers — reduce their dependence on third-party GPUs, Nvidia's <span class="econ-term" data-term="moat">economic moat</span> narrows significantly.</p>
+        <p>I'm watching the hyperscaler <span class="econ-term" data-term="capex">capex</span> announcements carefully. The thesis holds as long as external AI demand (startups, mid-size companies, universities) grows faster than internal chip development reduces the top-end market. So far, it does. But it's not permanent.</p>
       `
     },
     {
       tag: 'Markets', tagClass: 'tag-market',
       date: 'June 2026',
+      slug: 'fed-rates-tech-stocks',
       title: 'The Fed held rates. What does that actually mean for tech stocks?',
       body: `
         <p>Every time there's a Fed announcement, financial news goes into overdrive. "Rates held." "Markets rally." "Tech stocks surge." The correlation is consistent enough that it's worth actually understanding the mechanism — not just noting that it happens.</p>
         <h3>The discount rate idea</h3>
-        <p>A stock's price is theoretically the present value of all its future earnings, discounted back to today. The discount rate used is tied to interest rates. When rates rise, the discount rate rises, which means future earnings are worth less in today's money. When rates fall — or stay flat when the market expected a rise — the discount rate falls, and future earnings look more valuable.</p>
-        <p>Tech companies are disproportionately affected because their earnings are heavily weighted toward the future. A mature company like a utility earns money steadily now. A high-growth tech company earns relatively little today but (in theory) significantly more in five, ten, twenty years. That long-duration earnings profile makes it more sensitive to rate changes — the further out the earnings, the more the discount rate compounds.</p>
+        <p>A stock's price is theoretically the <span class="econ-term" data-term="present-value">present value</span> of all its future earnings, discounted back to today. The <span class="econ-term" data-term="discount-rate">discount rate</span> used is tied to interest rates. When rates rise, the discount rate rises, which means future earnings are worth less in today's money. When rates fall — or stay flat when the market expected a rise — the discount rate falls, and future earnings look more valuable.</p>
+        <p>Tech companies are disproportionately affected because their earnings are heavily weighted toward the future. A mature company like a utility earns money steadily now. A high-growth tech company earns relatively little today but (in theory) significantly more in five, ten, twenty years. That <span class="econ-term" data-term="long-duration">long-duration</span> earnings profile makes it more sensitive to rate changes — the further out the earnings, the more the discount rate compounds.</p>
         <h3>Why this matters for this portfolio</h3>
-        <p>Both NVDA and MSFT are high-multiple stocks — investors are paying significant premiums over current earnings based on growth expectations. That premium is implicitly a bet on the discount rate staying manageable. A rate environment that stays flat or falls is structurally supportive for these valuations.</p>
+        <p>Both NVDA and MSFT are high-multiple stocks — investors are paying significant premiums over current earnings based on growth expectations. That premium is implicitly a bet on the <span class="econ-term" data-term="discount-rate">discount rate</span> staying manageable. A rate environment that stays flat or falls is structurally supportive for these valuations.</p>
         <p>This is part of the thesis, not just macro noise. I'll be re-evaluating if the rate picture changes materially in the second half of 2026.</p>
       `
     },
     {
       tag: 'UAE markets', tagClass: 'tag-uae',
       date: 'June 2026',
+      slug: 'uae-oil-decoupling',
       title: 'Does the UAE economy still follow oil prices?',
       body: `
-        <p>Growing up in Dubai, the relationship between oil and the regional economy is something you absorb almost by osmosis. But the official narrative for the past decade has been diversification — tourism, finance, logistics, technology. So I wanted to actually look at the data rather than rely on the story.</p>
+        <p>Growing up in Dubai, the relationship between oil and the regional economy is something you absorb almost by osmosis. But the official narrative for the past decade has been <span class="econ-term" data-term="diversification">diversification</span> — tourism, finance, logistics, technology. So I wanted to actually look at the data rather than rely on the story.</p>
         <h3>The historical picture</h3>
-        <p>For most of the UAE's modern economic history, the correlation between oil prices and GDP growth was strong. When Brent crude rose, government revenues rose, spending increased, and the non-oil economy benefited from the spillover. When prices fell — as in 2015-16 — growth slowed significantly even in sectors with no direct oil exposure.</p>
+        <p>For most of the UAE's modern economic history, the <span class="econ-term" data-term="gdp-correlation">correlation</span> between oil prices and GDP growth was strong. When Brent crude rose, government revenues rose, spending increased, and the non-oil economy benefited from the spillover. When prices fell — as in 2015-16 — growth slowed significantly even in sectors with no direct oil exposure.</p>
         <h3>What's changed</h3>
         <p>The more recent data tells a more complicated story. The 2020-2023 period saw significant divergence: global oil demand collapsed in 2020, but Dubai's real estate and financial services sectors recovered faster than oil-dependent Gulf neighbours. Expo 2020, the DET's focus on tourism, and DIFC's growth as a financial hub all contributed to a more insulated non-oil GDP.</p>
-        <p>But the full decoupling story is probably overstated. Government spending — which still drives a large share of infrastructure and public-sector employment — remains tied to oil revenues. The correlation is weaker than it was. It hasn't disappeared.</p>
+        <p>But the full decoupling story is probably overstated. Government spending — which still drives a large share of infrastructure and public-sector employment — remains tied to oil revenues. The <span class="econ-term" data-term="gdp-correlation">correlation</span> is weaker than it was. It hasn't disappeared.</p>
         <h3>Why I'm watching this</h3>
-        <p>As a Dubai-based investor thinking about global portfolios, understanding the local macro backdrop matters for risk. If my portfolio is primarily US tech, I'm already geographically diversified. But my family's income and real estate exposure are UAE-based. Correlation matters across the whole picture, not just the portfolio in isolation — a lesson from basic portfolio theory that's easy to miss when you look at positions one at a time.</p>
+        <p>As a Dubai-based investor thinking about global portfolios, understanding the local macro backdrop matters for risk. If my portfolio is primarily US tech, I'm already geographically diversified. But my family's income and real estate exposure are UAE-based. Correlation matters across the whole picture, not just the portfolio in isolation — a lesson from basic <span class="econ-term" data-term="portfolio-theory">portfolio theory</span> that's easy to miss when you look at positions one at a time.</p>
       `
     }
   ];
 
+  /* ─────────────────────────────────────────
+     TAB SWITCHING
+  ───────────────────────────────────────── */
   function showTab(name, el) {
     document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -687,6 +874,9 @@
     if (el) el.classList.add('active');
   }
 
+  /* ─────────────────────────────────────────
+     POST MODAL + GISCUS COMMENTS
+  ───────────────────────────────────────── */
   function openPost(i) {
     const p = POSTS[i];
     document.getElementById('modal-inner').innerHTML = `
@@ -695,13 +885,57 @@
       <h2>${p.title}</h2>
       <div class="modal-body">${p.body}</div>
     `;
+
+    // Load Giscus for this post
+    loadGiscus(p.slug);
+
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Bind hover cards inside the freshly-rendered modal body
+    bindTermHovers(document.getElementById('modal-inner'));
+  }
+
+  function loadGiscus(slug) {
+    const container = document.getElementById('giscus-container');
+    container.innerHTML = ''; // clear previous
+
+    /*
+      ╔══════════════════════════════════════════════════════════╗
+      ║  GISCUS SETUP — one-time, takes ~5 minutes              ║
+      ║                                                          ║
+      ║  1. Go to https://giscus.app                            ║
+      ║  2. Enter your GitHub repo (e.g. yourusername/repo)     ║
+      ║  3. Enable GitHub Discussions on the repo               ║
+      ║  4. Copy your repo, repoId, category, categoryId values ║
+      ║  5. Replace the placeholders below                       ║
+      ╚══════════════════════════════════════════════════════════╝
+    */
+    const script = document.createElement('script');
+    script.src            = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo',            'YOUR_GITHUB_USERNAME/YOUR_REPO_NAME');
+    script.setAttribute('data-repo-id',         'YOUR_REPO_ID');
+    script.setAttribute('data-category',        'Announcements');
+    script.setAttribute('data-category-id',     'YOUR_CATEGORY_ID');
+    script.setAttribute('data-mapping',         'specific');
+    script.setAttribute('data-term',            slug);   // unique per post
+    script.setAttribute('data-strict',          '0');
+    script.setAttribute('data-reactions-enabled','1');
+    script.setAttribute('data-emit-metadata',   '0');
+    script.setAttribute('data-input-position',  'top');
+    script.setAttribute('data-theme',           'light');
+    script.setAttribute('data-lang',            'en');
+    script.setAttribute('data-loading',         'lazy');
+    script.crossOrigin    = 'anonymous';
+    script.async          = true;
+    container.appendChild(script);
   }
 
   function closePost() {
     document.getElementById('modal-overlay').classList.remove('open');
     document.body.style.overflow = '';
+    // Remove giscus iframe to avoid state leaking between posts
+    document.getElementById('giscus-container').innerHTML = '';
   }
 
   function closePostIfOutside(e) {
@@ -709,6 +943,61 @@
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closePost(); });
+
+  /* ─────────────────────────────────────────
+     ECON TERM HOVER-CARDS
+  ───────────────────────────────────────── */
+  const tooltip  = document.getElementById('econ-tooltip');
+  const ttTerm   = document.getElementById('tt-term');
+  const ttDef    = document.getElementById('tt-def');
+  const ttSrc    = document.getElementById('tt-src');
+
+  let hideTimer = null;
+
+  function showTooltip(el, key) {
+    clearTimeout(hideTimer);
+    const g = GLOSSARY[key];
+    if (!g) return;
+    ttTerm.textContent = g.term;
+    ttDef.textContent  = g.def;
+    ttSrc.textContent  = g.src;
+
+    tooltip.classList.add('visible');
+    positionTooltip(el);
+  }
+
+  function hideTooltip() {
+    hideTimer = setTimeout(() => tooltip.classList.remove('visible'), 120);
+  }
+
+  function positionTooltip(el) {
+    const rect   = el.getBoundingClientRect();
+    const tW     = 280;
+    const margin = 10;
+    const vW     = window.innerWidth;
+
+    let left = rect.left;
+    if (left + tW + margin > vW) left = vW - tW - margin;
+    if (left < margin) left = margin;
+
+    const top = rect.bottom + 8;
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top  = top + 'px';
+    tooltip.style.maxWidth = Math.min(tW, vW - margin * 2) + 'px';
+  }
+
+  function bindTermHovers(root) {
+    root.querySelectorAll('.econ-term').forEach(el => {
+      el.addEventListener('mouseenter', () => showTooltip(el, el.dataset.term));
+      el.addEventListener('mouseleave', hideTooltip);
+      el.addEventListener('focus',      () => showTooltip(el, el.dataset.term));
+      el.addEventListener('blur',       hideTooltip);
+    });
+  }
+
+  // Bind hover cards already in the DOM (portfolio theses)
+  bindTermHovers(document.body);
 </script>
 </body>
 </html>
