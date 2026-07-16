@@ -44,7 +44,6 @@
       background: var(--bg);
     }
 
-    /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -73,7 +72,6 @@
     .nav-btn:hover { background: var(--gray-100); color: var(--text); }
     .nav-btn.active { background: var(--blue-light); color: var(--blue-dark); }
 
-    /* ── HERO ── */
     .hero {
       padding: 3.5rem 2rem 2.5rem;
       max-width: 720px;
@@ -105,7 +103,6 @@
     }
     .hero-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gray-200); }
 
-    /* ── TABS ── */
     .tab-bar {
       display: flex; gap: 0;
       border-bottom: 0.5px solid var(--border);
@@ -135,14 +132,11 @@
       color: var(--text-hint);
     }
 
-    /* ── PANES ── */
     .pane { display: none; }
     .pane.active { display: block; }
 
-    /* ── SECTION WRAPPER ── */
     .section { padding: 2rem 2rem 3rem; max-width: 760px; }
 
-    /* ── PORTFOLIO ── */
     .metrics {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -160,6 +154,29 @@
     }
     .metric-value { font-size: 22px; font-weight: 600; color: var(--text); }
     .metric-sub { font-size: 12px; color: var(--text-hint); margin-top: 2px; }
+
+    .perf-snapshot {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.75rem;
+      background: var(--bg-2);
+    }
+    .perf-snapshot-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 1rem 1.25rem 0.85rem;
+    }
+    .perf-snapshot-date { font-size: 12px; color: var(--text-hint); }
+    .perf-snapshot-return {
+      font-size: 18px; font-weight: 700; color: var(--teal-dark);
+    }
+    .perf-snapshot-return span {
+      font-size: 11px; font-weight: 600; color: var(--text-hint);
+      margin-left: 3px;
+    }
+    .perf-snapshot-img {
+      display: block; width: 100%; height: auto;
+    }
 
     .holdings-label {
       font-size: 11px; font-weight: 600;
@@ -213,7 +230,6 @@
     }
     .thesis-text { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
-    /* ── BAR CHART ── */
     .chart-section { margin-top: 2rem; }
     .chart-title {
       font-size: 11px; font-weight: 600;
@@ -235,7 +251,6 @@
     .bar-fill.gray { background: var(--gray-200); }
     .bar-pct { width: 36px; text-align: right; color: var(--text-muted); flex-shrink: 0; }
 
-    /* ── MUSINGS ── */
     .posts { display: flex; flex-direction: column; gap: 0; }
     .post {
       padding: 1.5rem 0;
@@ -280,7 +295,6 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* ── ABOUT ── */
     .about-card {
       border: 0.5px solid var(--border);
       border-radius: var(--radius-lg);
@@ -330,7 +344,6 @@
     }
     .stat-lbl { font-size: 12px; color: var(--text-hint); margin-top: 2px; }
 
-    /* ── POST MODAL ── */
     .modal-overlay {
       display: none;
       position: fixed; inset: 0; z-index: 200;
@@ -374,73 +387,6 @@
       margin: 1.5rem 0 0.5rem;
     }
 
-    /* ── COMMENTS SECTION ── */
-    .comments-section {
-      margin-top: 2.5rem;
-      padding-top: 2rem;
-      border-top: 0.5px solid var(--border);
-    }
-    .comments-label {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--text-hint); margin-bottom: 1.25rem;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .comments-label::after {
-      content: ''; flex: 1; height: 0.5px; background: var(--border);
-    }
-    /* Giscus iframe overrides */
-    .giscus { margin-top: 0; }
-    .giscus-frame { border: none; width: 100%; }
-
-    /* ── ECON TERM HOVER-CARDS ── */
-    .econ-term {
-      border-bottom: 1.5px dotted var(--blue-mid);
-      color: inherit;
-      cursor: help;
-      position: relative;
-      transition: color 0.12s;
-    }
-    .econ-term:hover { color: var(--blue); }
-
-    /* Floating tooltip */
-    #econ-tooltip {
-      position: fixed;
-      z-index: 9999;
-      max-width: 280px;
-      background: var(--gray-900);
-      color: #fff;
-      border-radius: 10px;
-      padding: 0;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.14);
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.18s ease, transform 0.18s ease;
-    }
-    #econ-tooltip.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .tooltip-inner {
-      padding: 0.85rem 1rem;
-    }
-    .tooltip-term {
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--blue-mid); margin-bottom: 5px;
-    }
-    .tooltip-def {
-      font-size: 13px; line-height: 1.55;
-      color: rgba(255,255,255,0.88);
-    }
-    .tooltip-source {
-      font-size: 10px; color: rgba(255,255,255,0.4);
-      padding: 5px 1rem 8px;
-      border-top: 0.5px solid rgba(255,255,255,0.1);
-    }
-
-    /* ── FOOTER ── */
     footer {
       border-top: 0.5px solid var(--border);
       padding: 1.5rem 2rem;
@@ -457,22 +403,11 @@
       nav, .tab-bar { padding: 0 1.25rem; }
       .hero { padding: 2.5rem 1.25rem 2rem; }
       .modal { padding: 1.5rem; }
-      #econ-tooltip { max-width: 230px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Floating econ tooltip -->
-<div id="econ-tooltip">
-  <div class="tooltip-inner">
-    <div class="tooltip-term" id="tt-term"></div>
-    <div class="tooltip-def"  id="tt-def"></div>
-  </div>
-  <div class="tooltip-source" id="tt-src"></div>
-</div>
-
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">Ahaan<span>Econo</span>musings</a>
   <div class="nav-links">
@@ -482,7 +417,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">Economics × Technology</div>
   <h1>Tracking markets.<br>Thinking out loud.</h1>
@@ -498,73 +432,92 @@
   </div>
 </div>
 
-<!-- TABS -->
 <div class="tab-bar">
-  <div class="tab active" id="tab-portfolio" onclick="showTab('portfolio',this)">Portfolio <span class="tab-count">3</span></div>
-  <div class="tab"        id="tab-musings"   onclick="showTab('musings',this)">Musings <span class="tab-count">3</span></div>
+  <div class="tab active" id="tab-portfolio" onclick="showTab('portfolio',this)">Portfolio <span class="tab-count">2</span></div>
+  <div class="tab"        id="tab-musings"   onclick="showTab('musings',this)">Musings <span class="tab-count">4</span></div>
   <div class="tab"        id="tab-about"     onclick="showTab('about',this)">About</div>
 </div>
 
-<!-- ═══════════ PORTFOLIO ═══════════ -->
 <div class="pane active section" id="pane-portfolio">
 
   <div class="metrics">
     <div class="metric">
       <div class="metric-label">Portfolio value</div>
-      <div class="metric-value">$2,400</div>
-      <div class="metric-sub">Started Jun 2026</div>
+      <div class="metric-value">$20,877</div>
+      <div class="metric-sub">100% cash · 2 trades closed</div>
     </div>
     <div class="metric">
-      <div class="metric-label">Positions</div>
-      <div class="metric-value">2</div>
-      <div class="metric-sub">+ cash reserve</div>
+      <div class="metric-label">Total return</div>
+      <div class="metric-value" style="color:var(--teal-dark)">+4.38%</div>
+      <div class="metric-sub">Since Jun 2026</div>
     </div>
     <div class="metric">
-      <div class="metric-label">Focus</div>
-      <div class="metric-value" style="font-size:16px;padding-top:5px">Tech & AI</div>
-      <div class="metric-sub">Primary thesis</div>
+      <div class="metric-label">Started with</div>
+      <div class="metric-value">$20,000</div>
+      <div class="metric-sub">First deposit</div>
     </div>
   </div>
 
-  <div class="holdings-label">Holdings</div>
+  <div class="perf-snapshot">
+    <div class="perf-snapshot-head">
+      <div>
+        <div class="holdings-label" style="margin-bottom:2px">Performance snapshot</div>
+        <div class="perf-snapshot-date">IBKR · July 1, 2026</div>
+      </div>
+      <div class="perf-snapshot-return">+4.38% <span>MTD</span></div>
+    </div>
+    <img class="perf-snapshot-img" src="data:image/jpeg;base64,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AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo64wRyM88YHv6UBYTcB1Iz1IB6UqgscDB4yADyfpX0X8DPgvpVh4fn8d+PESPSIU821tLgfI6/wDPQjIyD2Xqaf8AEz9m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a0qvw+T/AJfke3fs/afbeBfA/iLx9qSBY0jaO3J4Yxrw2P8Aef5f1r5p1nVbnXtWu9RvJDJd3UrTTP8A3mPT8q+iP2mNbt/Bng3w98PdMfZHHEktzj72wcrkf7T/ADfpXzXRhY8zdWXUjiWrGgqOV09qS185PcKKKK9I+HCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKQG34M8W3/gbxJZa1pr7Lm3bJX+GRO6H2P6V9n+HtO8K+OdR0z4n2pWIxWUizs54RuxkPqvrjn2r4VrZ0zxjrWjaLfaRZalPbabfZFzbo3yuD1+lcOJw3trOLs9j7HIc/WVKVKvHnhul2kupd+JHi6Xx5431XWpCwjuJWEIf+GFfuL+FczQfqTng5OeKK7IxUIqKPl69WeJqyrVHdyd2FFFFWcwUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUCCiiigdwooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKD94r1OcYyM/lnNABRRgnPykd8lTj+VLxkZIGaAEooGe/B7A9//r+1H8u2f84/WgAooyOACNx7ZH8hz+lKQRjIIz270AJRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABR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EHP6VmUUBcKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAt2UigEE4zVnevqKzM+nFJ+Jq72FY1N6+oo3r6isv8AE0fiaLhY1N6+oo3r6isv8TR+JouFjU3r6ijevqKy/wATR+JouFjU3r6ijevqKy/xNH4mi4WNTevqKN6+orL/ABNH4mi4WA8kn1oooqBhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFFwCiiikAUUUUAFFFFABRRRQAUUUUAFFFFMAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKVx2Ciiii4WCiiii4WCiiii4WCiiii4WCiiii4WCiiii4WCiiii4WCiiii4WCiiii4WCiiinZiCiiiizAKKKKLMV0FFFFOw7oKKKKVmK6CiiinYdgoooosTcKKKKLBcKKKKLFWCiiiixNwoooosFwoooosFwoooosFwoooosFwoooosF0FFFFFgugoooosO6CiiiiwXQUUUUWC6CiiiiwXQUUUUWC6CiiilZhdBRRRRZhdBRRRRZhdBRRRRZhdBRRRRZhdBRRRRZhdBRRRRZi5kFFFFFmF0FFFFFmO6CiiiizFdBRRRQUFFFFAH/9k=" alt="Interactive Brokers month-to-date performance chart showing +4.38% return" />
+  </div>
+
+  <div class="holdings-label">Trade history</div>
 
   <div class="holding">
     <div class="holding-top">
       <div class="holding-left">
-        <div class="holding-icon blue">NVDA</div>
+        <div class="holding-icon blue">QQQ</div>
         <div>
-          <div class="holding-ticker">NVDA</div>
-          <div class="holding-name">Nvidia Corporation</div>
+          <div class="holding-ticker">QQQ</div>
+          <div class="holding-name">Invesco QQQ Trust (Nasdaq-100)</div>
         </div>
       </div>
       <div class="holding-right">
-        <div class="holding-weight">40%</div>
-        <span class="holding-badge badge-ai">AI / Semis</span>
+        <div class="holding-weight" style="color:var(--teal-dark)">+2.10%</div>
+        <span class="holding-badge badge-ai">Closed · 1 week</span>
       </div>
+    </div>
+    <div style="display:flex;gap:18px;margin-bottom:0.85rem;font-size:12px;color:var(--text-muted)">
+      <span>Bought <strong style="color:var(--text)">$713</strong> · Jun 24</span>
+      <span>Sold <strong style="color:var(--text)">$728</strong> · Jul 1</span>
+      <span>~28 shares · $20,000</span>
     </div>
     <div class="thesis-box">
       <div class="thesis-label">Investment thesis</div>
-      <div class="thesis-text">Nvidia's CUDA ecosystem creates significant <span class="econ-term" data-term="switching-costs">switching costs</span> — a classic <span class="econ-term" data-term="barrier-to-entry">barrier to entry</span> from microeconomics. As AI model training scales, demand for GPU compute is <span class="econ-term" data-term="inelastic-demand">inelastic</span> in the short run, giving Nvidia real <span class="econ-term" data-term="pricing-power">pricing power</span>. I'm watching whether this <span class="econ-term" data-term="moat">economic moat</span> holds as AMD and custom silicon (Google TPU, Apple) start to compete meaningfully.</div>
+      <div class="thesis-text">Second trade, rolling the full account back in after the first one closed. Late June saw a sharp tech sell-off — an OpenAI IPO delay and Apple/Microsoft price hikes knocked the Nasdaq lower — but none of that changed the underlying earnings power of the companies QQQ holds. I read it as a repricing of risk, not fundamentals, and bought in at $713. The rebound came from a US-Iran de-escalation that eased oil prices and rate-hike fears, plus a broad "Magnificent Seven" recovery, and I closed the trade at $728 into that strength rather than trying to call the top.</div>
     </div>
   </div>
 
   <div class="holding">
     <div class="holding-top">
       <div class="holding-left">
-        <div class="holding-icon teal">MSFT</div>
+        <div class="holding-icon teal">QQQ</div>
         <div>
-          <div class="holding-ticker">MSFT</div>
-          <div class="holding-name">Microsoft Corporation</div>
+          <div class="holding-ticker">QQQ</div>
+          <div class="holding-name">Invesco QQQ Trust (Nasdaq-100)</div>
         </div>
       </div>
       <div class="holding-right">
-        <div class="holding-weight">35%</div>
-        <span class="holding-badge badge-tech">Cloud / AI</span>
+        <div class="holding-weight" style="color:var(--teal-dark)">+2.24%</div>
+        <span class="holding-badge badge-tech">Closed · 1 week</span>
       </div>
+    </div>
+    <div style="display:flex;gap:18px;margin-bottom:0.85rem;font-size:12px;color:var(--text-muted)">
+      <span>Bought <strong style="color:var(--text)">$716.07</strong> · Jun 8</span>
+      <span>Sold <strong style="color:var(--text)">$732.00</strong> · Jun 16</span>
+      <span>~28 shares · $20,000</span>
     </div>
     <div class="thesis-box">
       <div class="thesis-label">Investment thesis</div>
-      <div class="thesis-text">Azure's cloud growth is tied to enterprise AI adoption, which I expect to follow an <span class="econ-term" data-term="s-curve">S-curve diffusion</span> pattern. Microsoft's OpenAI partnership gives it a distribution advantage — it embeds AI into products already with near-<span class="econ-term" data-term="monopoly">monopoly</span> enterprise penetration. The <span class="econ-term" data-term="network-effects">network effects</span> here are structural and hard to replicate quickly.</div>
+      <div class="thesis-text">My first live trade, sized at the full $20,000 starting deposit. I chose QQQ rather than a single stock so I could test a market-timing read without taking on company-specific risk right away. The position moved against me almost immediately — QQQ dipped to a fresh low within two trading days of my entry — before recovering through the rest of the week. I closed it out for a modest gain, a useful first data point on entry discipline and staying the course through a dip before committing to individual names.</div>
     </div>
   </div>
 
@@ -578,43 +531,45 @@
         </div>
       </div>
       <div class="holding-right">
-        <div class="holding-weight">25%</div>
+        <div class="holding-weight">100%</div>
         <span class="holding-badge badge-cash">Reserve</span>
       </div>
     </div>
     <div class="thesis-box">
       <div class="thesis-label">Reasoning</div>
-      <div class="thesis-text">Holding cash as <span class="econ-term" data-term="optionality">optionality</span> — watching for a pullback in semiconductor names before adding a third position. Currently researching ASML (<span class="econ-term" data-term="monopoly">monopoly</span> on EUV lithography) and TSMC as candidates. Optionality has real value in <span class="econ-term" data-term="volatile-markets">volatile markets</span>; deploying too early is a cost.</div>
+      <div class="thesis-text">Fully in cash after closing two QQQ positions. Two trades still isn't much of a sample, so I'm treating this as an early track record rather than proof of a repeatable edge — deciding on the next position rather than rushing back in.</div>
     </div>
   </div>
 
   <div class="chart-section">
-    <div class="chart-title">Allocation</div>
-    <div class="bar-row">
-      <div class="bar-ticker">NVDA</div>
-      <div class="bar-track"><div class="bar-fill blue" style="width:40%"></div></div>
-      <div class="bar-pct">40%</div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-ticker">MSFT</div>
-      <div class="bar-track"><div class="bar-fill teal" style="width:35%"></div></div>
-      <div class="bar-pct">35%</div>
-    </div>
+    <div class="chart-title">Current allocation</div>
     <div class="bar-row">
       <div class="bar-ticker">Cash</div>
-      <div class="bar-track"><div class="bar-fill gray" style="width:25%"></div></div>
-      <div class="bar-pct">25%</div>
+      <div class="bar-track"><div class="bar-fill gray" style="width:100%"></div></div>
+      <div class="bar-pct">100%</div>
     </div>
   </div>
 
 </div>
 
-<!-- ═══════════ MUSINGS ═══════════ -->
 <div class="pane section" id="pane-musings">
   <div class="posts" id="posts-list">
 
     <div class="post" onclick="openPost(0)">
       <div class="post-num">01</div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-tag tag-market">Weekly update</span>
+          <span class="post-date">July 2026</span>
+        </div>
+        <h2>Closing the second QQQ trade: what two weeks of live trading taught me</h2>
+        <p class="post-excerpt">I closed my second position — a $20,000 QQQ trade, bought at $713 and sold at $728 — and went back to 100% cash. Here's the reasoning behind sizing, timing, and why I'm not in a hurry to redeploy.</p>
+        <span class="post-read">Read</span>
+      </div>
+    </div>
+
+    <div class="post" onclick="openPost(1)">
+      <div class="post-num">02</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-ai">AI economics</span>
@@ -626,8 +581,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(1)">
-      <div class="post-num">02</div>
+    <div class="post" onclick="openPost(2)">
+      <div class="post-num">03</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-market">Markets</span>
@@ -639,8 +594,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(2)">
-      <div class="post-num">03</div>
+    <div class="post" onclick="openPost(3)">
+      <div class="post-num">04</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-uae">UAE markets</span>
@@ -655,7 +610,6 @@
   </div>
 </div>
 
-<!-- ═══════════ ABOUT ═══════════ -->
 <div class="pane section" id="pane-about">
 
   <div class="about-card">
@@ -678,12 +632,12 @@
 
   <div class="stats-row">
     <div class="stat-box">
-      <span class="stat-num">3</span>
+      <span class="stat-num">4</span>
       <div class="stat-lbl">Posts</div>
     </div>
     <div class="stat-box">
       <span class="stat-num">2</span>
-      <div class="stat-lbl">Holdings</div>
+      <div class="stat-lbl">Trades</div>
     </div>
     <div class="stat-box">
       <span class="stat-num">Jun '26</span>
@@ -693,178 +647,81 @@
 
 </div>
 
-<!-- POST MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closePostIfOutside(event)">
   <div class="modal" id="modal-content">
     <button class="modal-close" onclick="closePost()">✕</button>
     <div id="modal-inner"></div>
-    <!-- Comments -->
-    <div class="comments-section">
-      <div class="comments-label">Discussion</div>
-      <div id="giscus-container"></div>
-    </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <span>© 2026 Ahaan Jain · AhaanEconomusings</span>
   <span>NLCS Dubai · Views are my own · Not financial advice</span>
 </footer>
 
 <script>
-  /* ─────────────────────────────────────────
-     ECON GLOSSARY
-     Each key maps to { term, def, source }
-  ───────────────────────────────────────── */
-  const GLOSSARY = {
-    'switching-costs': {
-      term: 'Switching Costs',
-      def:  'The costs a buyer incurs when changing from one supplier or product to another — including time, money, and lost productivity. High switching costs give suppliers pricing power because buyers are "locked in".',
-      src:  'IB Economics HL · Microeconomics'
-    },
-    'barrier-to-entry': {
-      term: 'Barrier to Entry',
-      def:  'Any factor that makes it difficult for new firms to enter a market — such as high capital costs, patents, economies of scale, or established brand loyalty. Barriers protect incumbent firms\' profit margins.',
-      src:  'IB Economics HL · Market Structures'
-    },
-    'inelastic-demand': {
-      term: 'Inelastic Demand',
-      def:  'When demand is unresponsive to price changes — a price increase leads to a proportionally smaller fall in quantity demanded (PED < 1). Common for necessities or products with few close substitutes.',
-      src:  'IB Economics HL · Elasticity'
-    },
-    'pricing-power': {
-      term: 'Pricing Power',
-      def:  'A firm\'s ability to raise prices without losing a significant share of customers to competitors. It emerges from market power, brand strength, or switching costs — and directly protects profit margins.',
-      src:  'IB Economics HL · Microeconomics'
-    },
-    'moat': {
-      term: 'Economic Moat',
-      def:  'Warren Buffett\'s term for a durable competitive advantage that protects a business from rivals — like switching costs, network effects, or cost advantages. Think of it as a castle\'s moat keeping competitors out.',
-      src:  'Finance concept · adapted from IB Economics'
-    },
-    's-curve': {
-      term: 'S-Curve Diffusion',
-      def:  'A pattern where new technologies or products are adopted slowly at first, then rapidly through the mainstream, then plateau as the market saturates. Named for the shape of the adoption curve over time.',
-      src:  'Economics of Innovation · IB Economics'
-    },
-    'monopoly': {
-      term: 'Monopoly',
-      def:  'A market structure where a single seller dominates, with no close substitutes for its product. Monopolists are price-makers and can earn supernormal profit in the long run due to high barriers to entry.',
-      src:  'IB Economics HL · Market Structures'
-    },
-    'network-effects': {
-      term: 'Network Effects',
-      def:  'When a product or service becomes more valuable as more people use it (e.g. social networks, payment systems). Strong network effects create winner-take-all dynamics and are a powerful barrier to entry.',
-      src:  'IB Economics HL · Microeconomics'
-    },
-    'optionality': {
-      term: 'Optionality',
-      def:  'The value of having the right — but not the obligation — to make a decision in the future. In investing, holding cash preserves optionality: you can act when opportunities arise without being forced to sell at a bad time.',
-      src:  'Finance concept · IB Economics (opportunity cost)'
-    },
-    'volatile-markets': {
-      term: 'Market Volatility',
-      def:  'The degree of price fluctuation in a market over time. High volatility means prices swing widely and unpredictably. Measured statistically by standard deviation of returns.',
-      src:  'IB Economics HL · Financial Markets'
-    },
-    'discount-rate': {
-      term: 'Discount Rate',
-      def:  'The rate used to convert future cash flows into their present-day value. A higher discount rate makes future earnings worth less today — which is why rising interest rates tend to lower the value of growth stocks.',
-      src:  'IB Economics HL · Finance'
-    },
-    'present-value': {
-      term: 'Present Value',
-      def:  'The current worth of a future sum of money, given a specific discount rate. Fundamental to stock valuation: a share\'s price should reflect the present value of all its expected future earnings.',
-      src:  'IB Economics HL · Finance'
-    },
-    'long-duration': {
-      term: 'Long-Duration Assets',
-      def:  'Assets whose value is heavily concentrated in cash flows far into the future. Tech growth stocks are long-duration — most of their projected earnings are 5–20 years away — making them highly sensitive to interest rate changes.',
-      src:  'Finance · IB Economics HL'
-    },
-    'capex': {
-      term: 'Capital Expenditure (CapEx)',
-      def:  'Funds spent by a company to acquire or upgrade physical assets — like data centres, manufacturing plants, or infrastructure. High CapEx by cloud companies signals confidence in future demand growth.',
-      src:  'IB Economics HL · Business Finance'
-    },
-    'gdp-correlation': {
-      term: 'GDP Correlation',
-      def:  'A statistical measure of how closely one variable (e.g. oil prices) moves in relation to another (e.g. GDP growth). A correlation of +1 means they move perfectly together; 0 means no relationship.',
-      src:  'IB Economics HL · Macroeconomics'
-    },
-    'diversification': {
-      term: 'Economic Diversification',
-      def:  'A policy strategy where a country (or portfolio) reduces dependence on a single sector or asset by developing new industries. The UAE has pursued diversification away from oil into tourism, finance, and logistics.',
-      src:  'IB Economics HL · Development Economics'
-    },
-    'portfolio-theory': {
-      term: 'Portfolio Theory',
-      def:  'The idea (Markowitz, 1952) that combining assets with low correlations reduces overall portfolio risk without necessarily reducing expected return. Diversification across geographies and sectors is a core principle.',
-      src:  'IB Economics HL · Financial Markets'
-    },
-    'vertical-integration': {
-      term: 'Vertical Integration',
-      def:  'When a firm expands into stages of production it previously relied on others for — either upstream (suppliers) or downstream (distribution). Tech giants building their own chips is backward vertical integration.',
-      src:  'IB Economics HL · Business Strategy'
-    }
-  };
-
-  /* ─────────────────────────────────────────
-     POSTS DATA — with econ-term markup
-  ───────────────────────────────────────── */
   const POSTS = [
+    {
+      tag: 'Weekly update', tagClass: 'tag-market',
+      date: 'July 2026',
+      title: 'Closing the second QQQ trade: what two weeks of live trading taught me',
+      body: `
+        <p>This week I closed my second position: $20,000 into QQQ, bought at $713 on June 24 and sold at $728 on July 1, for a gain of about 2.1%. The portfolio is back to 100% cash. I want to use this post to think through the decision itself, not just report the number.</p>
+        <h3>Why I sized it the way I did</h3>
+        <p>I put the full account back into a single, diversified instrument rather than splitting it across positions or holding some back. With only one prior trade behind me (a first QQQ round-trip in early June, +2.24%), I don't yet have enough of a track record to justify concentrating in single names — QQQ gives me exposure to the Nasdaq-100 without betting on any one company's earnings report or product cycle. Position sizing is really a question about how much confidence the evidence supports, and right now the honest answer is: not much yet.</p>
+        <h3>Reading the dip as noise, not signal</h3>
+        <p>The entry came during a sharp late-June sell-off driven by an OpenAI IPO delay and price hikes from Apple and Microsoft. None of that changed the actual cash-flow generating capacity of the companies inside QQQ — it changed sentiment and short-term risk appetite. In economics terms, this is the distinction between a shift in the discount rate applied to future earnings and a shift in the earnings themselves. I treated it as the former, which is why I was comfortable buying into the drop rather than waiting for a "confirmed bottom" that, by definition, you can only see in hindsight.</p>
+        <h3>Why I closed rather than let it run</h3>
+        <p>The rebound was helped by a US-Iran de-escalation that eased both oil prices and rate-hike fears, plus a broader recovery across the "Magnificent Seven." I closed into that strength instead of trying to time the exact top. This is a deliberate rule I'm setting for myself early: exiting on strength, with a real, articulable reason, beats holding indefinitely on the hope of a bigger number later. It's a small discipline, but it's the kind of thing that's easy to get wrong when a position is green and it feels like it should keep going.</p>
+        <h3>What's next</h3>
+        <p>Two closed trades is still a small sample — not enough to say I have a repeatable edge, just enough to start building a track record and a set of habits around entries and exits. I'm back to fully in cash while I research the next position (ASML and TSMC remain on the list, given the semiconductor equipment monopoly angle from my Nvidia post). Optionality has a cost — cash earns nothing while it waits — but deploying it before I have real conviction has a cost too.</p>
+      `
+    },
     {
       tag: 'AI economics', tagClass: 'tag-ai',
       date: 'June 2026',
-      slug: 'nvidia-pricing-power',
       title: 'Why Nvidia has pricing power — and what could break it',
       body: `
-        <p>In standard microeconomics, we assume that competition erodes <span class="econ-term" data-term="pricing-power">pricing power</span> over time. New firms enter, supply increases, margins compress. This is the long-run equilibrium we study in IB Economics. But Nvidia sits in a market where that logic is under strain — and understanding why is more interesting than the stock price itself.</p>
+        <p>In standard microeconomics, we assume that competition erodes pricing power over time. New firms enter, supply increases, margins compress. This is the long-run equilibrium we study in IB Economics. But Nvidia sits in a market where that logic is under strain — and understanding why is more interesting than the stock price itself.</p>
         <h3>What switching costs actually mean</h3>
-        <p>CUDA is Nvidia's parallel computing platform. It's been the dominant framework for GPU programming since 2006. The key thing to understand is that CUDA isn't just a product — it's an ecosystem. Thousands of AI libraries, tools, and research codebases are written for CUDA. A data centre that switches from Nvidia to a competitor doesn't just buy new hardware; it re-trains engineers, re-tests software, and accepts a period of reduced productivity. These are the <span class="econ-term" data-term="switching-costs">switching costs</span>, and they're not trivial.</p>
-        <p>In economics terms, this creates a <span class="econ-term" data-term="barrier-to-entry">barrier to entry</span> that isn't primarily about capital. A new competitor can build good GPUs. What they can't easily replicate is two decades of ecosystem development. This is what gives Nvidia <span class="econ-term" data-term="inelastic-demand">inelastic demand</span> in the short run — buyers have limited alternatives even when the price rises.</p>
+        <p>CUDA is Nvidia's parallel computing platform. It's been the dominant framework for GPU programming since 2006. The key thing to understand is that CUDA isn't just a product — it's an ecosystem. Thousands of AI libraries, tools, and research codebases are written for CUDA. A data centre that switches from Nvidia to a competitor doesn't just buy new hardware; it re-trains engineers, re-tests software, and accepts a period of reduced productivity. These are the switching costs, and they're not trivial.</p>
+        <p>In economics terms, this creates a barrier to entry that isn't primarily about capital. A new competitor can build good GPUs. What they can't easily replicate is two decades of ecosystem development. This is what gives Nvidia inelastic demand in the short run — buyers have limited alternatives even when the price rises.</p>
         <h3>What could break this</h3>
-        <p>The main threat isn't AMD building better chips. It's <span class="econ-term" data-term="vertical-integration">vertical integration</span>: Google's TPUs, Apple's Neural Engine, Amazon's Trainium. These are custom chips built to run specific AI workloads internally, bypassing CUDA entirely. If the biggest buyers of compute — the hyperscalers — reduce their dependence on third-party GPUs, Nvidia's <span class="econ-term" data-term="moat">economic moat</span> narrows significantly.</p>
-        <p>I'm watching the hyperscaler <span class="econ-term" data-term="capex">capex</span> announcements carefully. The thesis holds as long as external AI demand (startups, mid-size companies, universities) grows faster than internal chip development reduces the top-end market. So far, it does. But it's not permanent.</p>
+        <p>The main threat isn't AMD building better chips. It's vertical integration: Google's TPUs, Apple's Neural Engine, Amazon's Trainium. These are custom chips built to run specific AI workloads internally, bypassing CUDA entirely. If the biggest buyers of compute — the hyperscalers — reduce their dependence on third-party GPUs, Nvidia's moat narrows significantly.</p>
+        <p>I'm watching the hyperscaler capex announcements carefully. The thesis holds as long as external AI demand (startups, mid-size companies, universities) grows faster than internal chip development reduces the top-end market. So far, it does. But it's not permanent.</p>
       `
     },
     {
       tag: 'Markets', tagClass: 'tag-market',
       date: 'June 2026',
-      slug: 'fed-rates-tech-stocks',
       title: 'The Fed held rates. What does that actually mean for tech stocks?',
       body: `
         <p>Every time there's a Fed announcement, financial news goes into overdrive. "Rates held." "Markets rally." "Tech stocks surge." The correlation is consistent enough that it's worth actually understanding the mechanism — not just noting that it happens.</p>
         <h3>The discount rate idea</h3>
-        <p>A stock's price is theoretically the <span class="econ-term" data-term="present-value">present value</span> of all its future earnings, discounted back to today. The <span class="econ-term" data-term="discount-rate">discount rate</span> used is tied to interest rates. When rates rise, the discount rate rises, which means future earnings are worth less in today's money. When rates fall — or stay flat when the market expected a rise — the discount rate falls, and future earnings look more valuable.</p>
-        <p>Tech companies are disproportionately affected because their earnings are heavily weighted toward the future. A mature company like a utility earns money steadily now. A high-growth tech company earns relatively little today but (in theory) significantly more in five, ten, twenty years. That <span class="econ-term" data-term="long-duration">long-duration</span> earnings profile makes it more sensitive to rate changes — the further out the earnings, the more the discount rate compounds.</p>
+        <p>A stock's price is theoretically the present value of all its future earnings, discounted back to today. The discount rate used is tied to interest rates. When rates rise, the discount rate rises, which means future earnings are worth less in today's money. When rates fall — or stay flat when the market expected a rise — the discount rate falls, and future earnings look more valuable.</p>
+        <p>Tech companies are disproportionately affected because their earnings are heavily weighted toward the future. A mature company like a utility earns money steadily now. A high-growth tech company earns relatively little today but (in theory) significantly more in five, ten, twenty years. That long-duration earnings profile makes it more sensitive to rate changes — the further out the earnings, the more the discount rate compounds.</p>
         <h3>Why this matters for this portfolio</h3>
-        <p>Both NVDA and MSFT are high-multiple stocks — investors are paying significant premiums over current earnings based on growth expectations. That premium is implicitly a bet on the <span class="econ-term" data-term="discount-rate">discount rate</span> staying manageable. A rate environment that stays flat or falls is structurally supportive for these valuations.</p>
+        <p>Both NVDA and MSFT are high-multiple stocks — investors are paying significant premiums over current earnings based on growth expectations. That premium is implicitly a bet on the discount rate staying manageable. A rate environment that stays flat or falls is structurally supportive for these valuations.</p>
         <p>This is part of the thesis, not just macro noise. I'll be re-evaluating if the rate picture changes materially in the second half of 2026.</p>
       `
     },
     {
       tag: 'UAE markets', tagClass: 'tag-uae',
       date: 'June 2026',
-      slug: 'uae-oil-decoupling',
       title: 'Does the UAE economy still follow oil prices?',
       body: `
-        <p>Growing up in Dubai, the relationship between oil and the regional economy is something you absorb almost by osmosis. But the official narrative for the past decade has been <span class="econ-term" data-term="diversification">diversification</span> — tourism, finance, logistics, technology. So I wanted to actually look at the data rather than rely on the story.</p>
+        <p>Growing up in Dubai, the relationship between oil and the regional economy is something you absorb almost by osmosis. But the official narrative for the past decade has been diversification — tourism, finance, logistics, technology. So I wanted to actually look at the data rather than rely on the story.</p>
         <h3>The historical picture</h3>
-        <p>For most of the UAE's modern economic history, the <span class="econ-term" data-term="gdp-correlation">correlation</span> between oil prices and GDP growth was strong. When Brent crude rose, government revenues rose, spending increased, and the non-oil economy benefited from the spillover. When prices fell — as in 2015-16 — growth slowed significantly even in sectors with no direct oil exposure.</p>
+        <p>For most of the UAE's modern economic history, the correlation between oil prices and GDP growth was strong. When Brent crude rose, government revenues rose, spending increased, and the non-oil economy benefited from the spillover. When prices fell — as in 2015-16 — growth slowed significantly even in sectors with no direct oil exposure.</p>
         <h3>What's changed</h3>
         <p>The more recent data tells a more complicated story. The 2020-2023 period saw significant divergence: global oil demand collapsed in 2020, but Dubai's real estate and financial services sectors recovered faster than oil-dependent Gulf neighbours. Expo 2020, the DET's focus on tourism, and DIFC's growth as a financial hub all contributed to a more insulated non-oil GDP.</p>
-        <p>But the full decoupling story is probably overstated. Government spending — which still drives a large share of infrastructure and public-sector employment — remains tied to oil revenues. The <span class="econ-term" data-term="gdp-correlation">correlation</span> is weaker than it was. It hasn't disappeared.</p>
+        <p>But the full decoupling story is probably overstated. Government spending — which still drives a large share of infrastructure and public-sector employment — remains tied to oil revenues. The correlation is weaker than it was. It hasn't disappeared.</p>
         <h3>Why I'm watching this</h3>
-        <p>As a Dubai-based investor thinking about global portfolios, understanding the local macro backdrop matters for risk. If my portfolio is primarily US tech, I'm already geographically diversified. But my family's income and real estate exposure are UAE-based. Correlation matters across the whole picture, not just the portfolio in isolation — a lesson from basic <span class="econ-term" data-term="portfolio-theory">portfolio theory</span> that's easy to miss when you look at positions one at a time.</p>
+        <p>As a Dubai-based investor thinking about global portfolios, understanding the local macro backdrop matters for risk. If my portfolio is primarily US tech, I'm already geographically diversified. But my family's income and real estate exposure are UAE-based. Correlation matters across the whole picture, not just the portfolio in isolation — a lesson from basic portfolio theory that's easy to miss when you look at positions one at a time.</p>
       `
     }
   ];
 
-  /* ─────────────────────────────────────────
-     TAB SWITCHING
-  ───────────────────────────────────────── */
   function showTab(name, el) {
     document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -874,9 +731,6 @@
     if (el) el.classList.add('active');
   }
 
-  /* ─────────────────────────────────────────
-     POST MODAL + GISCUS COMMENTS
-  ───────────────────────────────────────── */
   function openPost(i) {
     const p = POSTS[i];
     document.getElementById('modal-inner').innerHTML = `
@@ -885,57 +739,13 @@
       <h2>${p.title}</h2>
       <div class="modal-body">${p.body}</div>
     `;
-
-    // Load Giscus for this post
-    loadGiscus(p.slug);
-
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
-
-    // Bind hover cards inside the freshly-rendered modal body
-    bindTermHovers(document.getElementById('modal-inner'));
-  }
-
-  function loadGiscus(slug) {
-    const container = document.getElementById('giscus-container');
-    container.innerHTML = ''; // clear previous
-
-    /*
-      ╔══════════════════════════════════════════════════════════╗
-      ║  GISCUS SETUP — one-time, takes ~5 minutes              ║
-      ║                                                          ║
-      ║  1. Go to https://giscus.app                            ║
-      ║  2. Enter your GitHub repo (e.g. yourusername/repo)     ║
-      ║  3. Enable GitHub Discussions on the repo               ║
-      ║  4. Copy your repo, repoId, category, categoryId values ║
-      ║  5. Replace the placeholders below                       ║
-      ╚══════════════════════════════════════════════════════════╝
-    */
-    const script = document.createElement('script');
-    script.src            = 'https://giscus.app/client.js';
-    script.setAttribute('data-repo',            'ahaan-economusings/AhaanEconomusings');
-    script.setAttribute('data-repo-id',         'R_kgDOTFF8Mw');
-    script.setAttribute('data-category',        'Announcements');
-    script.setAttribute('data-category-id',     'DIC_kwDOTFF8M84C_4n3');
-    script.setAttribute('data-mapping',         'specific');
-    script.setAttribute('data-term',            slug);   // unique per post
-    script.setAttribute('data-strict',          '0');
-    script.setAttribute('data-reactions-enabled','1');
-    script.setAttribute('data-emit-metadata',   '0');
-    script.setAttribute('data-input-position',  'top');
-    script.setAttribute('data-theme',           'light');
-    script.setAttribute('data-lang',            'en');
-    script.setAttribute('data-loading',         'lazy');
-    script.crossOrigin    = 'anonymous';
-    script.async          = true;
-    container.appendChild(script);
   }
 
   function closePost() {
     document.getElementById('modal-overlay').classList.remove('open');
     document.body.style.overflow = '';
-    // Remove giscus iframe to avoid state leaking between posts
-    document.getElementById('giscus-container').innerHTML = '';
   }
 
   function closePostIfOutside(e) {
@@ -943,61 +753,6 @@
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closePost(); });
-
-  /* ─────────────────────────────────────────
-     ECON TERM HOVER-CARDS
-  ───────────────────────────────────────── */
-  const tooltip  = document.getElementById('econ-tooltip');
-  const ttTerm   = document.getElementById('tt-term');
-  const ttDef    = document.getElementById('tt-def');
-  const ttSrc    = document.getElementById('tt-src');
-
-  let hideTimer = null;
-
-  function showTooltip(el, key) {
-    clearTimeout(hideTimer);
-    const g = GLOSSARY[key];
-    if (!g) return;
-    ttTerm.textContent = g.term;
-    ttDef.textContent  = g.def;
-    ttSrc.textContent  = g.src;
-
-    tooltip.classList.add('visible');
-    positionTooltip(el);
-  }
-
-  function hideTooltip() {
-    hideTimer = setTimeout(() => tooltip.classList.remove('visible'), 120);
-  }
-
-  function positionTooltip(el) {
-    const rect   = el.getBoundingClientRect();
-    const tW     = 280;
-    const margin = 10;
-    const vW     = window.innerWidth;
-
-    let left = rect.left;
-    if (left + tW + margin > vW) left = vW - tW - margin;
-    if (left < margin) left = margin;
-
-    const top = rect.bottom + 8;
-
-    tooltip.style.left = left + 'px';
-    tooltip.style.top  = top + 'px';
-    tooltip.style.maxWidth = Math.min(tW, vW - margin * 2) + 'px';
-  }
-
-  function bindTermHovers(root) {
-    root.querySelectorAll('.econ-term').forEach(el => {
-      el.addEventListener('mouseenter', () => showTooltip(el, el.dataset.term));
-      el.addEventListener('mouseleave', hideTooltip);
-      el.addEventListener('focus',      () => showTooltip(el, el.dataset.term));
-      el.addEventListener('blur',       hideTooltip);
-    });
-  }
-
-  // Bind hover cards already in the DOM (portfolio theses)
-  bindTermHovers(document.body);
 </script>
 </body>
 </html>
