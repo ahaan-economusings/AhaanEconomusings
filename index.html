@@ -387,6 +387,60 @@
       margin: 1.5rem 0 0.5rem;
     }
 
+    .term {
+      position: relative;
+      border-bottom: 1px dotted var(--blue);
+      cursor: help;
+      color: var(--blue-dark);
+      font-weight: 500;
+    }
+    .term:hover, .term:focus { outline: none; }
+    .term::after {
+      content: attr(data-tip);
+      position: absolute;
+      left: 0;
+      bottom: calc(100% + 8px);
+      width: 230px;
+      max-width: 60vw;
+      background: var(--gray-900);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.5;
+      padding: 8px 10px;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: opacity 0.15s, transform 0.15s;
+      z-index: 300;
+      pointer-events: none;
+    }
+    .term::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      bottom: 100%;
+      margin-bottom: 2px;
+      border: 5px solid transparent;
+      border-top-color: var(--gray-900);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s;
+      z-index: 300;
+    }
+    .term:hover::after, .term:hover::before,
+    .term:focus::after, .term:focus::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    @media (max-width: 600px) {
+      .term::after { left: -20px; width: 200px; }
+      .term::before { left: -8px; }
+    }
+
     footer {
       border-top: 0.5px solid var(--border);
       padding: 1.5rem 2rem;
@@ -668,9 +722,9 @@
       body: `
         <p>This week I closed my second position: $20,000 into QQQ, bought at $713 on June 24 and sold at $728 on July 1, for a gain of about 2.1%. The portfolio is back to 100% cash. I want to use this post to think through the decision itself, not just report the number.</p>
         <h3>Why I sized it the way I did</h3>
-        <p>I put the full account back into a single, diversified instrument rather than splitting it across positions or holding some back. With only one prior trade behind me (a first QQQ round-trip in early June, +2.24%), I don't yet have enough of a track record to justify concentrating in single names — QQQ gives me exposure to the Nasdaq-100 without betting on any one company's earnings report or product cycle. Position sizing is really a question about how much confidence the evidence supports, and right now the honest answer is: not much yet.</p>
+        <p>I put the full account back into a single, <span class="term" tabindex="0" data-tip="A fund that spreads investment across many companies (here, the Nasdaq-100), so no single stock's performance dominates the result.">diversified</span> instrument rather than splitting it across positions or holding some back. With only one prior trade behind me (a first QQQ round-trip in early June, +2.24%), I don't yet have enough of a track record to justify concentrating in single names — QQQ gives me exposure to the Nasdaq-100 without betting on any one company's earnings report or product cycle. <span class="term" tabindex="0" data-tip="Deciding how much money to put into a single trade relative to your total capital, based on how confident you are in the idea.">Position sizing</span> is really a question about how much confidence the evidence supports, and right now the honest answer is: not much yet.</p>
         <h3>Reading the dip as noise, not signal</h3>
-        <p>The entry came during a sharp late-June sell-off driven by an OpenAI IPO delay and price hikes from Apple and Microsoft. None of that changed the actual cash-flow generating capacity of the companies inside QQQ — it changed sentiment and short-term risk appetite. In economics terms, this is the distinction between a shift in the discount rate applied to future earnings and a shift in the earnings themselves. I treated it as the former, which is why I was comfortable buying into the drop rather than waiting for a "confirmed bottom" that, by definition, you can only see in hindsight.</p>
+        <p>The entry came during a sharp late-June sell-off driven by an OpenAI IPO delay and price hikes from Apple and Microsoft. None of that changed the actual cash-flow generating capacity of the companies inside QQQ — it changed sentiment and short-term risk appetite. In economics terms, this is the distinction between a shift in the <span class="term" tabindex="0" data-tip="The rate used to translate a future dollar of profit into what it's worth today. Higher rates make future earnings worth less right now.">discount rate</span> applied to future earnings and a shift in the earnings themselves. I treated it as the former, which is why I was comfortable buying into the drop rather than waiting for a "confirmed bottom" that, by definition, you can only see in hindsight.</p>
         <h3>Why I closed rather than let it run</h3>
         <p>The rebound was helped by a US-Iran de-escalation that eased both oil prices and rate-hike fears, plus a broader recovery across the "Magnificent Seven." I closed into that strength instead of trying to time the exact top. This is a deliberate rule I'm setting for myself early: exiting on strength, with a real, articulable reason, beats holding indefinitely on the hope of a bigger number later. It's a small discipline, but it's the kind of thing that's easy to get wrong when a position is green and it feels like it should keep going.</p>
         <h3>What's next</h3>
@@ -684,11 +738,11 @@
       body: `
         <p>In standard microeconomics, we assume that competition erodes pricing power over time. New firms enter, supply increases, margins compress. This is the long-run equilibrium we study in IB Economics. But Nvidia sits in a market where that logic is under strain — and understanding why is more interesting than the stock price itself.</p>
         <h3>What switching costs actually mean</h3>
-        <p>CUDA is Nvidia's parallel computing platform. It's been the dominant framework for GPU programming since 2006. The key thing to understand is that CUDA isn't just a product — it's an ecosystem. Thousands of AI libraries, tools, and research codebases are written for CUDA. A data centre that switches from Nvidia to a competitor doesn't just buy new hardware; it re-trains engineers, re-tests software, and accepts a period of reduced productivity. These are the switching costs, and they're not trivial.</p>
-        <p>In economics terms, this creates a barrier to entry that isn't primarily about capital. A new competitor can build good GPUs. What they can't easily replicate is two decades of ecosystem development. This is what gives Nvidia inelastic demand in the short run — buyers have limited alternatives even when the price rises.</p>
+        <p>CUDA is Nvidia's parallel computing platform. It's been the dominant framework for GPU programming since 2006. The key thing to understand is that CUDA isn't just a product — it's an ecosystem. Thousands of AI libraries, tools, and research codebases are written for CUDA. A data centre that switches from Nvidia to a competitor doesn't just buy new hardware; it re-trains engineers, re-tests software, and accepts a period of reduced productivity. These are the <span class="term" tabindex="0" data-tip="The time, money, or hassle a customer would face moving from one product or platform to a rival's — the harder it is to leave, the more pricing power the seller keeps.">switching costs</span>, and they're not trivial.</p>
+        <p>In economics terms, this creates a <span class="term" tabindex="0" data-tip="Something that makes it hard for new competitors to enter a market and compete on equal footing — here, decades of software built specifically for one company's hardware.">barrier to entry</span> that isn't primarily about capital. A new competitor can build good GPUs. What they can't easily replicate is two decades of ecosystem development. This is what gives Nvidia <span class="term" tabindex="0" data-tip="Demand that doesn't fall much even when the price rises, because buyers have few good alternatives.">inelastic demand</span> in the short run — buyers have limited alternatives even when the price rises.</p>
         <h3>What could break this</h3>
-        <p>The main threat isn't AMD building better chips. It's vertical integration: Google's TPUs, Apple's Neural Engine, Amazon's Trainium. These are custom chips built to run specific AI workloads internally, bypassing CUDA entirely. If the biggest buyers of compute — the hyperscalers — reduce their dependence on third-party GPUs, Nvidia's moat narrows significantly.</p>
-        <p>I'm watching the hyperscaler capex announcements carefully. The thesis holds as long as external AI demand (startups, mid-size companies, universities) grows faster than internal chip development reduces the top-end market. So far, it does. But it's not permanent.</p>
+        <p>The main threat isn't AMD building better chips. It's <span class="term" tabindex="0" data-tip="When a company builds the technology it needs in-house instead of buying it from an outside supplier — e.g. Google designing its own AI chips instead of buying Nvidia's.">vertical integration</span>: Google's TPUs, Apple's Neural Engine, Amazon's Trainium. These are custom chips built to run specific AI workloads internally, bypassing CUDA entirely. If the biggest buyers of compute — the hyperscalers — reduce their dependence on third-party GPUs, Nvidia's moat narrows significantly.</p>
+        <p>I'm watching the <span class="term" tabindex="0" data-tip="The capital spending — servers, chips, data centres — announced by giant cloud companies (Google, Microsoft, Amazon, Meta) each quarter. A leading indicator of AI chip demand.">hyperscaler capex</span> announcements carefully. The thesis holds as long as external AI demand (startups, mid-size companies, universities) grows faster than internal chip development reduces the top-end market. So far, it does. But it's not permanent.</p>
       `
     },
     {
@@ -698,10 +752,10 @@
       body: `
         <p>Every time there's a Fed announcement, financial news goes into overdrive. "Rates held." "Markets rally." "Tech stocks surge." The correlation is consistent enough that it's worth actually understanding the mechanism — not just noting that it happens.</p>
         <h3>The discount rate idea</h3>
-        <p>A stock's price is theoretically the present value of all its future earnings, discounted back to today. The discount rate used is tied to interest rates. When rates rise, the discount rate rises, which means future earnings are worth less in today's money. When rates fall — or stay flat when the market expected a rise — the discount rate falls, and future earnings look more valuable.</p>
+        <p>A stock's price is theoretically the <span class="term" tabindex="0" data-tip="What a future sum of money is worth today, once you account for the fact that money now is worth more than the same amount later.">present value</span> of all its future earnings, discounted back to today. The <span class="term" tabindex="0" data-tip="The rate used to translate a future dollar of profit into what it's worth today. Higher rates make future earnings worth less right now.">discount rate</span> used is tied to interest rates. When rates rise, the discount rate rises, which means future earnings are worth less in today's money. When rates fall — or stay flat when the market expected a rise — the discount rate falls, and future earnings look more valuable.</p>
         <p>Tech companies are disproportionately affected because their earnings are heavily weighted toward the future. A mature company like a utility earns money steadily now. A high-growth tech company earns relatively little today but (in theory) significantly more in five, ten, twenty years. That long-duration earnings profile makes it more sensitive to rate changes — the further out the earnings, the more the discount rate compounds.</p>
         <h3>Why this matters for this portfolio</h3>
-        <p>Both NVDA and MSFT are high-multiple stocks — investors are paying significant premiums over current earnings based on growth expectations. That premium is implicitly a bet on the discount rate staying manageable. A rate environment that stays flat or falls is structurally supportive for these valuations.</p>
+        <p>Both NVDA and MSFT are <span class="term" tabindex="0" data-tip="Stocks trading at a high price relative to their current earnings, because investors expect much bigger profits in the future.">high-multiple stocks</span> — investors are paying significant premiums over current earnings based on growth expectations. That premium is implicitly a bet on the discount rate staying manageable. A rate environment that stays flat or falls is structurally supportive for these valuations.</p>
         <p>This is part of the thesis, not just macro noise. I'll be re-evaluating if the rate picture changes materially in the second half of 2026.</p>
       `
     },
@@ -710,11 +764,11 @@
       date: 'June 2026',
       title: 'Does the UAE economy still follow oil prices?',
       body: `
-        <p>Growing up in Dubai, the relationship between oil and the regional economy is something you absorb almost by osmosis. But the official narrative for the past decade has been diversification — tourism, finance, logistics, technology. So I wanted to actually look at the data rather than rely on the story.</p>
+        <p>Growing up in Dubai, the relationship between oil and the regional economy is something you absorb almost by osmosis. But the official narrative for the past decade has been <span class="term" tabindex="0" data-tip="A country building up other industries (tourism, finance, tech) so it isn't dependent on one resource, like oil, for its income.">economic diversification</span> — tourism, finance, logistics, technology. So I wanted to actually look at the data rather than rely on the story.</p>
         <h3>The historical picture</h3>
-        <p>For most of the UAE's modern economic history, the correlation between oil prices and GDP growth was strong. When Brent crude rose, government revenues rose, spending increased, and the non-oil economy benefited from the spillover. When prices fell — as in 2015-16 — growth slowed significantly even in sectors with no direct oil exposure.</p>
+        <p>For most of the UAE's modern economic history, the <span class="term" tabindex="0" data-tip="A statistical measure of how closely two things move together — here, oil prices and GDP growth. Strong correlation means they tend to rise and fall together.">correlation</span> between oil prices and GDP growth was strong. When Brent crude rose, government revenues rose, spending increased, and the non-oil economy benefited from the <span class="term" tabindex="0" data-tip="The knock-on benefit one part of the economy gets from growth somewhere else — e.g. more government oil revenue leading to more public spending, which then boosts unrelated sectors.">spillover</span>. When prices fell — as in 2015-16 — growth slowed significantly even in sectors with no direct oil exposure.</p>
         <h3>What's changed</h3>
-        <p>The more recent data tells a more complicated story. The 2020-2023 period saw significant divergence: global oil demand collapsed in 2020, but Dubai's real estate and financial services sectors recovered faster than oil-dependent Gulf neighbours. Expo 2020, the DET's focus on tourism, and DIFC's growth as a financial hub all contributed to a more insulated non-oil GDP.</p>
+        <p>The more recent data tells a more complicated story. The 2020-2023 period saw significant divergence: global oil demand collapsed in 2020, but Dubai's real estate and financial services sectors recovered faster than oil-dependent Gulf neighbours. Expo 2020, the DET's focus on tourism, and DIFC's growth as a financial hub all contributed to a more insulated <span class="term" tabindex="0" data-tip="The part of a country's economic output that doesn't come directly from oil and gas — tourism, finance, real estate, logistics, etc.">non-oil GDP</span>.</p>
         <p>But the full decoupling story is probably overstated. Government spending — which still drives a large share of infrastructure and public-sector employment — remains tied to oil revenues. The correlation is weaker than it was. It hasn't disappeared.</p>
         <h3>Why I'm watching this</h3>
         <p>As a Dubai-based investor thinking about global portfolios, understanding the local macro backdrop matters for risk. If my portfolio is primarily US tech, I'm already geographically diversified. But my family's income and real estate exposure are UAE-based. Correlation matters across the whole picture, not just the portfolio in isolation — a lesson from basic portfolio theory that's easy to miss when you look at positions one at a time.</p>
