@@ -205,6 +205,7 @@
     .holding-icon.blue { background: var(--blue-light); color: var(--blue-dark); }
     .holding-icon.teal { background: var(--teal-light); color: var(--teal-dark); }
     .holding-icon.gray { background: var(--gray-100); color: var(--gray-600); }
+    .holding-icon.amber { background: var(--amber-light); color: var(--amber-dark); }
     .holding-ticker { font-size: 15px; font-weight: 600; color: var(--text); }
     .holding-name { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
     .holding-right { text-align: right; flex-shrink: 0; }
@@ -216,6 +217,7 @@
     .badge-ai   { background: var(--teal-light); color: var(--teal-dark); }
     .badge-tech { background: var(--blue-light);  color: var(--blue-dark); }
     .badge-cash { background: var(--gray-100);    color: var(--gray-600); }
+    .badge-open { background: var(--amber-light); color: var(--amber-dark); }
 
     .thesis-box {
       background: var(--bg-2);
@@ -249,6 +251,7 @@
     .bar-fill.blue { background: var(--blue-mid); }
     .bar-fill.teal { background: var(--teal); }
     .bar-fill.gray { background: var(--gray-200); }
+    .bar-fill.amber { background: var(--amber); }
     .bar-pct { width: 36px; text-align: right; color: var(--text-muted); flex-shrink: 0; }
 
     .posts { display: flex; flex-direction: column; gap: 0; }
@@ -487,8 +490,8 @@
 </div>
 
 <div class="tab-bar">
-  <div class="tab active" id="tab-portfolio" onclick="showTab('portfolio',this)">Portfolio <span class="tab-count">3</span></div>
-  <div class="tab"        id="tab-musings"   onclick="showTab('musings',this)">Musings <span class="tab-count">5</span></div>
+  <div class="tab active" id="tab-portfolio" onclick="showTab('portfolio',this)">Portfolio <span class="tab-count">4</span></div>
+  <div class="tab"        id="tab-musings"   onclick="showTab('musings',this)">Musings <span class="tab-count">6</span></div>
   <div class="tab"        id="tab-about"     onclick="showTab('about',this)">About</div>
 </div>
 
@@ -497,13 +500,13 @@
   <div class="metrics">
     <div class="metric">
       <div class="metric-label">Portfolio value</div>
-      <div class="metric-value">$21,009.76</div>
-      <div class="metric-sub">100% cash · 3 trades closed</div>
+      <div class="metric-value">$21,051.32</div>
+      <div class="metric-sub">~4.7% cash · 3 closed, 1 open</div>
     </div>
     <div class="metric">
       <div class="metric-label">Total return</div>
-      <div class="metric-value" style="color:var(--teal-dark)">+5.03%</div>
-      <div class="metric-sub">IBKR 3M performance</div>
+      <div class="metric-value" style="color:var(--teal-dark)">+5.26%</div>
+      <div class="metric-sub">IBKR, as of Aug 28 close</div>
     </div>
     <div class="metric">
       <div class="metric-label">Started with</div>
@@ -524,6 +527,31 @@
   </div>
 
   <div class="holdings-label">Trade history</div>
+
+  <div class="holding">
+    <div class="holding-top">
+      <div class="holding-left">
+        <div class="holding-icon amber">QQQ</div>
+        <div>
+          <div class="holding-ticker">QQQ</div>
+          <div class="holding-name">Invesco QQQ Trust (Nasdaq-100)</div>
+        </div>
+      </div>
+      <div class="holding-right">
+        <div class="holding-weight" style="color:var(--teal-dark)">+0.21%</div>
+        <span class="holding-badge badge-open">Open · 7 days</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:18px;margin-bottom:0.85rem;font-size:12px;color:var(--text-muted)">
+      <span>Bought <strong style="color:var(--text)">$714.91</strong> · Aug 21</span>
+      <span>Now <strong style="color:var(--text)">$716.43</strong> · Aug 28 close</span>
+      <span>28 shares · Unrealized +$42.56</span>
+    </div>
+    <div class="thesis-box">
+      <div class="thesis-label">Investment thesis</div>
+      <div class="thesis-text">Fourth trade, full account (28 shares, ~$20,017) redeployed into QQQ after a short stretch back in cash following trade three. Same process as the first three round trips: size the full account into a diversified instrument rather than a single name, hold with a reason rather than a fixed calendar, and let the exit decision be about strength or a change in view — not a schedule. Currently open, no exit target set yet.</div>
+    </div>
+  </div>
 
   <div class="holding">
     <div class="holding-top">
@@ -603,9 +631,14 @@
   <div class="chart-section">
     <div class="chart-title">Current allocation</div>
     <div class="bar-row">
+      <div class="bar-ticker">QQQ</div>
+      <div class="bar-track"><div class="bar-fill amber" style="width:95.3%"></div></div>
+      <div class="bar-pct">95.3%</div>
+    </div>
+    <div class="bar-row">
       <div class="bar-ticker">Cash</div>
-      <div class="bar-track"><div class="bar-fill gray" style="width:100%"></div></div>
-      <div class="bar-pct">100%</div>
+      <div class="bar-track"><div class="bar-fill gray" style="width:4.7%"></div></div>
+      <div class="bar-pct">4.7%</div>
     </div>
   </div>
 
@@ -618,6 +651,19 @@
       <div class="post-num">01</div>
       <div class="post-content">
         <div class="post-meta">
+          <span class="post-tag tag-market">Markets</span>
+          <span class="post-date">August 2026</span>
+        </div>
+        <h2>SpaceX went public. Now the market is deciding what it's actually worth.</h2>
+        <p class="post-excerpt">SpaceX priced its IPO at a $1.75 trillion valuation in June. By early August, Morningstar put fair value at $780 billion and the stock had fallen below its $150 offering price. Here's what closed that gap.</p>
+        <span class="post-read">Read</span>
+      </div>
+    </div>
+
+    <div class="post" onclick="openPost(1)">
+      <div class="post-num">02</div>
+      <div class="post-content">
+        <div class="post-meta">
           <span class="post-tag tag-market">Weekly update</span>
           <span class="post-date">August 2026</span>
         </div>
@@ -627,8 +673,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(1)">
-      <div class="post-num">02</div>
+    <div class="post" onclick="openPost(2)">
+      <div class="post-num">03</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-market">Weekly update</span>
@@ -640,8 +686,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(2)">
-      <div class="post-num">03</div>
+    <div class="post" onclick="openPost(3)">
+      <div class="post-num">04</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-ai">AI economics</span>
@@ -653,8 +699,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(3)">
-      <div class="post-num">04</div>
+    <div class="post" onclick="openPost(4)">
+      <div class="post-num">05</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-market">Markets</span>
@@ -666,8 +712,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(4)">
-      <div class="post-num">05</div>
+    <div class="post" onclick="openPost(5)">
+      <div class="post-num">06</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-uae">UAE markets</span>
@@ -704,11 +750,11 @@
 
   <div class="stats-row">
     <div class="stat-box">
-      <span class="stat-num">5</span>
+      <span class="stat-num">6</span>
       <div class="stat-lbl">Posts</div>
     </div>
     <div class="stat-box">
-      <span class="stat-num">3</span>
+      <span class="stat-num">4</span>
       <div class="stat-lbl">Trades</div>
     </div>
     <div class="stat-box">
@@ -733,6 +779,22 @@
 
 <script>
   const POSTS = [
+    {
+      tag: 'Markets', tagClass: 'tag-market',
+      date: 'August 2026',
+      title: "SpaceX went public. Now the market is deciding what it's actually worth.",
+      body: `
+        <p>SpaceX went public on June 12, 2026 — the largest IPO in history, $75 billion raised, priced at $150 a share and targeting a valuation as high as $1.75 trillion. I watched the debut with the same excitement as everyone else: by market cap alone, it would immediately rank as roughly the seventh-largest public company in America. Then I looked at where the stock actually sits now, and started asking a more useful question than "is SpaceX a good company" — which is: what does the price tell us about what the market believed on day one, versus what it believes now?</p>
+        <h3>A trillion-dollar gap between story and revenue</h3>
+        <p>By market capitalization at IPO, SpaceX ranked around 7th among US companies. By revenue, Morningstar analyst Nicholas Owens put it closer to 200th. That gap is only sustainable when investors are pricing a mission — reusable rockets, Starlink, Mars — rather than a set of cash flows. Owens's own fair-value estimate was $780 billion, about 55% below the $1.75 trillion target, and that's before factoring in a $4.95 billion net loss last year, driven partly by roughly $20 billion sunk into the xAI/Grok merger, which Owens flagged as not yet showing a real competitive edge over rivals.</p>
+        <h3>The stock has started doing the repricing itself</h3>
+        <p>The market didn't wait for analysts to make this case. Shares spiked to an intraday high of $225.64 shortly after listing — a roughly 50% pop on the offering price. By August 4, when SpaceX reported its first earnings as a public company (revenue nearly doubled year over year to $7.8 billion, but still a $541 million quarterly loss and $18.4 billion in capital spending in three months alone), the stock closed at $125.33. That's below the $150 IPO price, and more than $1 trillion of market capitalization gone from the June peak — while the underlying business, by the numbers that matter, kept growing.</p>
+        <h3>Why this matters beyond SpaceX</h3>
+        <p>This is the same lesson I keep circling back to with Nvidia and with every AI-adjacent name inside QQQ: a stock price isn't a verdict on whether a business is good, it's a bet on a growth rate baked into today's price. At $225, the market was pricing in something close to the mission narrative. At $125, it's pricing in something closer to the actual revenue trajectory — still fast, but not fast enough to justify a $1.75 trillion tag next to a $4.95 billion loss. Neither price was irrational in the moment; they were both real prices real investors paid. What changed between them wasn't the rockets — it was how much story the market was willing to pay for on top of the numbers.</p>
+        <h3>What I'm watching next</h3>
+        <p>SpaceX isn't in my portfolio — QQQ doesn't hold it, since it isn't part of the Nasdaq-100 (at least not yet). But the pattern is one I want to get better at reading before I put more of my own capital behind a growth story: separating the part of a price that's justified by cash flows from the part that's a bet on a narrative. I'll be watching whether the stock stabilizes closer to Morningstar's $780 billion estimate, or whether the insider lockup expiration brings another leg down.</p>
+      `
+    },
     {
       tag: 'Weekly update', tagClass: 'tag-market',
       date: 'August 2026',
