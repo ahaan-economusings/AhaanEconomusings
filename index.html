@@ -491,7 +491,7 @@
 
 <div class="tab-bar">
   <div class="tab active" id="tab-portfolio" onclick="showTab('portfolio',this)">Portfolio <span class="tab-count">4</span></div>
-  <div class="tab"        id="tab-musings"   onclick="showTab('musings',this)">Musings <span class="tab-count">6</span></div>
+  <div class="tab"        id="tab-musings"   onclick="showTab('musings',this)">Musings <span class="tab-count">7</span></div>
   <div class="tab"        id="tab-about"     onclick="showTab('about',this)">About</div>
 </div>
 
@@ -652,6 +652,19 @@
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-market">Markets</span>
+          <span class="post-date">September 2026</span>
+        </div>
+        <h2>QQQ hasn't gone anywhere since my last buy. The companies inside it have all been telling very different stories.</h2>
+        <p class="post-excerpt">I bought QQQ at $714.91 on August 21 and haven't touched the position since — it's basically flat. But "flat" was hiding a wildly uneven earnings season underneath. Here's what I found when I actually looked at the companies.</p>
+        <span class="post-read">Read</span>
+      </div>
+    </div>
+
+    <div class="post" onclick="openPost(1)">
+      <div class="post-num">02</div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-tag tag-market">Markets</span>
           <span class="post-date">August 2026</span>
         </div>
         <h2>SpaceX went public. Now the market is deciding what it's actually worth.</h2>
@@ -660,8 +673,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(1)">
-      <div class="post-num">02</div>
+    <div class="post" onclick="openPost(2)">
+      <div class="post-num">03</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-market">Weekly update</span>
@@ -673,8 +686,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(2)">
-      <div class="post-num">03</div>
+    <div class="post" onclick="openPost(3)">
+      <div class="post-num">04</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-market">Weekly update</span>
@@ -686,8 +699,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(3)">
-      <div class="post-num">04</div>
+    <div class="post" onclick="openPost(4)">
+      <div class="post-num">05</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-ai">AI economics</span>
@@ -699,8 +712,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(4)">
-      <div class="post-num">05</div>
+    <div class="post" onclick="openPost(5)">
+      <div class="post-num">06</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-market">Markets</span>
@@ -712,8 +725,8 @@
       </div>
     </div>
 
-    <div class="post" onclick="openPost(5)">
-      <div class="post-num">06</div>
+    <div class="post" onclick="openPost(6)">
+      <div class="post-num">07</div>
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-uae">UAE markets</span>
@@ -750,7 +763,7 @@
 
   <div class="stats-row">
     <div class="stat-box">
-      <span class="stat-num">6</span>
+      <span class="stat-num">7</span>
       <div class="stat-lbl">Posts</div>
     </div>
     <div class="stat-box">
@@ -779,6 +792,29 @@
 
 <script>
   const POSTS = [
+    {
+      tag: 'Markets', tagClass: 'tag-market',
+      date: 'September 2026',
+      title: "QQQ hasn't gone anywhere since my last buy. The companies inside it have all been telling very different stories.",
+      body: `
+        <p>It's been eighteen days since I bought QQQ at $714.91, and I haven't made a single trade since. The price has barely moved — it's sitting around $718 now, up about half a percent, after chopping through a $30 range in between. Watching the ticker do that made me want to actually look under the hood: QQQ is one number, but it's built from roughly a hundred companies, and August was the biggest earnings month of the year for almost all of them. If the index is flat, that could mean nothing happened. Or it could mean a lot happened, in offsetting directions. I wanted to find out which.</p>
+        <h3>What's actually inside the ticker</h3>
+        <p>The first thing worth saying is that QQQ is less diversified than "I own the Nasdaq-100" sounds. The top ten holdings — Nvidia, Apple, Microsoft, Amazon, Micron, AMD, Alphabet (both share classes), Broadcom, and Meta — make up about <span class="term" tabindex="0" data-tip="How much of a fund's total value sits in its largest few positions. Higher concentration means the fund's performance depends more heavily on a small number of companies.">45.6% of the fund</span>, out of 107 total positions. And nearly every one of those top names is exposed to the same underlying theme: AI infrastructure spending, in one form or another. So when people say QQQ diversifies away single-company risk, that's true — but it doesn't diversify away the AI-capex theme itself. I own one big bet with a hundred names attached to it, not a hundred independent bets.</p>
+        <h3>The AI infrastructure names: big numbers, mixed reactions</h3>
+        <p>Nvidia's fiscal Q2 report in late August was about as clean as it gets: $96.2 billion in revenue, up 106% year over year, with data center sales — 93% of the total — still the whole story. The stock's reaction was calm, because the number matched what an increasingly confident market already expected.</p>
+        <p>Broadcom's quarter, reported in early September, was arguably even more extreme: revenue up 86% to $29.6 billion, AI semiconductor revenue up 221% to $16.7 billion, its fourteenth straight quarter of AI-driven growth. And the stock barely moved. Why would a number that good get a shrug? Because Broadcom guided next quarter to $34.8 billion — just under the $35 billion analysts were modeling — and at roughly 61 times trailing earnings, "just under" was enough to trigger profit-taking. This is the part of investing that's easy to miss from the outside: the stock doesn't react to whether the number is good, it reacts to whether the number is good relative to what was already priced in. Broadcom beat the world. It just didn't beat the bar its own valuation had set.</p>
+        <h3>The memory shortage nobody priced in until it hit everyone</h3>
+        <p>The most extreme number of the whole season belonged to Micron, and it's the one I think matters most going forward. Revenue of $41.46 billion, up 346% year over year from $9.3 billion — a memory chip company nearly quintupling in a single year — with gross margin at a record 84.9%, and guidance for next quarter even higher at $50 billion. The driver is <span class="term" tabindex="0" data-tip="High-bandwidth memory — a type of chip stacked directly next to AI processors like Nvidia's GPUs, letting data move between memory and compute far faster than standard chips allow. It's become one of the tightest-supplied components in the entire AI buildout.">HBM</span>, the memory used to feed AI chips, and Micron says it's sold out — booked through 2027 already.</p>
+        <p>Here's the part that connects everything: that same memory shortage that made Micron's quarter is the reason Apple's stock fell roughly 7% after beating its own estimates. Apple's June quarter was genuinely excellent — record revenue of $109.4 billion, EPS up 29% — but management guided the next quarter to 9-11% growth instead of the roughly 12% Wall Street wanted, and explicitly flagged "sharply higher memory prices" as a margin pressure alongside tighter chip supply. The exact scarcity that's making one company in this ETF spectacular is showing up as a cost line for another. That's not a coincidence you'd see if you only read Apple's headline or only read Micron's — you need both to see the mechanism.</p>
+        <h3>Why Meta got punished and Microsoft didn't</h3>
+        <p>The clearest split in the whole earnings season, though, was about spending, not selling. Meta's revenue actually beat estimates, up 28% to $60.8 billion, but EPS missed badly — $6.18 against $7.17 expected — and <span class="term" tabindex="0" data-tip="Cash a company generates after paying for its operations and its capital spending. It's what's actually left over, as opposed to accounting profit, which can include non-cash items.">free cash flow</span> collapsed from $8.5 billion a year earlier to just $784 million, because $31.1 billion in <span class="term" tabindex="0" data-tip="Money spent on physical assets like buildings, servers, and chips — an investment in future capacity rather than a current-period expense.">capital expenditure</span> nearly swallowed the entire quarter's operating cash flow. Management raised full-year capex guidance again, to $130-145 billion, without giving investors much of a story for what that spending is going to return. The stock fell almost 10% on the print.</p>
+        <p>Microsoft spent heavily too, but its Azure cloud business kept accelerating alongside it — the capex had a visible, growing revenue line attached to it, and the market rewarded that instead of punishing it. Same underlying strategy — spend enormous amounts on AI infrastructure now, for demand you're betting shows up later — but one company could point to the demand already showing up, and one couldn't. That gap between spending on a story and spending with proof is, I think, the single most useful lens for reading this whole earnings season.</p>
+        <h3>What this means for holding QQQ instead of single names</h3>
+        <p>This is really the argument for why I've stuck with QQQ through four trades instead of picking individual stocks. If I'd owned Broadcom alone, or Meta alone, I'd have had a rough few weeks despite genuinely strong underlying businesses. If I'd owned Micron alone, I'd look like a genius for reasons that are as much about a supply shortage as a demand story — good luck as much as good judgment. Owning the basket means all of these outcomes net against each other, and the index ends up looking calmer than any single name inside it actually was. But the concentration point from earlier still applies: I'm not diversified away from the AI-capex theme itself, just from any one company's execution risk within it. If the theme itself turns out to be wrong, QQQ doesn't protect me from that.</p>
+        <h3>Where I stand</h3>
+        <p>The position is still open at a small unrealized gain, and I'm not treating "it's been eighteen days" as a reason to do anything by itself — the rule I set after the second trade still holds: exit on a real reason, not a calendar. The Fed meets September 15-16, and September has a genuine seasonal reputation as the market's weakest month, so I'd expect more of the chop that's defined the last few weeks rather than a clean move in either direction. For now, that's fine. I'd rather hold through noise I understand than trade around noise I don't.</p>
+      `
+    },
     {
       tag: 'Markets', tagClass: 'tag-market',
       date: 'August 2026',
