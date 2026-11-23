@@ -389,6 +389,27 @@
       font-size: 16px; font-weight: 600; color: var(--text);
       margin: 1.5rem 0 0.5rem;
     }
+    .modal-body ul, .modal-body ol { margin: 0 0 1rem 1.25rem; }
+    .modal-body li { margin-bottom: 0.4rem; }
+    .modal-body .post-updated { font-size: 13px; color: var(--text-hint); font-style: italic; }
+    .modal-body .table-wrap { overflow-x: auto; margin: 0.25rem 0 0.5rem; }
+    .modal-body table {
+      width: 100%; border-collapse: collapse;
+      font-size: 14px; font-variant-numeric: tabular-nums;
+    }
+    .modal-body caption {
+      caption-side: top; text-align: left;
+      font-weight: 600; color: var(--text); padding-bottom: 0.4rem;
+    }
+    .modal-body th, .modal-body td {
+      padding: 6px 12px; text-align: right;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-body th { color: var(--text); font-weight: 600; border-bottom: 1px solid var(--border-md); }
+    .modal-body th:first-child, .modal-body td:first-child { text-align: left; padding-left: 0; }
+    .modal-body td.neg { color: #A32D2D; }
+    .modal-body td.pos { color: var(--teal-dark); }
+    .modal-body .table-note { font-size: 12px; color: var(--text-hint); margin: 0 0 0.5rem; }
 
     .term {
       position: relative;
@@ -756,10 +777,10 @@
       <div class="post-content">
         <div class="post-meta">
           <span class="post-tag tag-uae">UAE markets</span>
-          <span class="post-date">June 2026</span>
+          <span class="post-date">June 2026 &middot; Updated Nov 2026</span>
         </div>
-        <h2>Does the UAE economy still follow oil prices?</h2>
-        <p class="post-excerpt">The UAE's economic diversification story is one of the most interesting policy experiments in the region. As a Dubai-based student, I looked at the data to see whether the old oil-GDP correlation still holds.</p>
+        <h2>Can UAE pour oil on its troubled waters?</h2>
+        <p class="post-excerpt">The US-Iran war shook the UAE's reputation as a safe haven. I broke down the 2026 GDP data quarter by quarter, looked at the OPEC exit and the IMF's outlook, and asked what the UAE should do next.</p>
         <span class="post-read">Read</span>
       </div>
     </div>
@@ -961,17 +982,49 @@
     },
     {
       tag: 'UAE markets', tagClass: 'tag-uae',
-      date: 'June 2026',
-      title: 'Does the UAE economy still follow oil prices?',
+      date: 'June 2026 &middot; Updated Nov 2026',
+      title: "Can UAE pour oil on its troubled waters?",
       body: `
-        <p>Growing up in Dubai, the relationship between oil and the regional economy is something you absorb almost by osmosis. But the official narrative for the past decade has been <span class="term" tabindex="0" data-tip="A country building up other industries (tourism, finance, tech) so it isn't dependent on one resource, like oil, for its income.">economic diversification</span> — tourism, finance, logistics, technology. So I wanted to actually look at the data rather than rely on the story.</p>
-        <h3>The historical picture</h3>
-        <p>For most of the UAE's modern economic history, the <span class="term" tabindex="0" data-tip="A statistical measure of how closely two things move together — here, oil prices and GDP growth. Strong correlation means they tend to rise and fall together.">correlation</span> between oil prices and GDP growth was strong. When Brent crude rose, government revenues rose, spending increased, and the non-oil economy benefited from the <span class="term" tabindex="0" data-tip="The knock-on benefit one part of the economy gets from growth somewhere else — e.g. more government oil revenue leading to more public spending, which then boosts unrelated sectors.">spillover</span>. When prices fell — as in 2015-16 — growth slowed significantly even in sectors with no direct oil exposure.</p>
-        <h3>What's changed</h3>
-        <p>The more recent data tells a more complicated story. The 2020-2023 period saw significant divergence: global oil demand collapsed in 2020, but Dubai's real estate and financial services sectors recovered faster than oil-dependent Gulf neighbours. Expo 2020, the DET's focus on tourism, and DIFC's growth as a financial hub all contributed to a more insulated <span class="term" tabindex="0" data-tip="The part of a country's economic output that doesn't come directly from oil and gas — tourism, finance, real estate, logistics, etc.">non-oil GDP</span>.</p>
-        <p>But the full decoupling story is probably overstated. Government spending — which still drives a large share of infrastructure and public-sector employment — remains tied to oil revenues. The correlation is weaker than it was. It hasn't disappeared.</p>
-        <h3>Why I'm watching this</h3>
-        <p>As a Dubai-based investor thinking about global portfolios, understanding the local macro backdrop matters for risk. If my portfolio is primarily US tech, I'm already geographically diversified. But my family's income and real estate exposure are UAE-based. Correlation matters across the whole picture, not just the portfolio in isolation — a lesson from basic portfolio theory that's easy to miss when you look at positions one at a time.</p>
+        <p class="post-updated">Originally written June 2026 &middot; Updated 19 Nov 2026</p>
+        <p>US-Iran War punctured the long standing reputation of UAE as a <span class="term" tabindex="0" data-tip="A place investors and residents see as stable and secure, so money and people move there when trouble hits elsewhere.">safe haven</span>. Property prices, international population inflows, the number of regional headquarters, and even the relocation of family offices, all implicitly rested on one condition: UAE would never actually become a battlefield. After February 28, that assumption was shaken.</p>
+        <p>UAE took swift actions as the war broke out:</p>
+        <ul>
+          <li>Activated its air defence systems overnight, with approximately 92-96% of missiles successfully intercepted as per news reports</li>
+          <li>Focused on defending its skies, ensuring not to drag the country further into war</li>
+          <li>The country’s leadership led active efforts to cool tensions and stop the war from spreading, with the UAE repeatedly calling diplomacy and dialogue the only real path to stability and prosperity for the region</li>
+          <li>Left <span class="term" tabindex="0" data-tip="The Organization of the Petroleum Exporting Countries: a group of oil producers that sets output limits for its members to influence oil prices.">OPEC</span> on 1st May 2026 to be able to sell oil on its own terms</li>
+        </ul>
+        <p>Was UAE well prepared for such a disaster? I would say mostly yes. Let’s have a look:</p>
+        <p>UAE turned partnerships into protection. US and Israel air defence systems helped keep UAE’s skies safe. However, hosting US bases and closeness to Israel were key reasons behind missile attacks on its soil.</p>
+        <p>UAE kept <span class="term" tabindex="0" data-tip="A country building up other industries (tourism, finance, tech) so it isn't dependent on one resource, like oil, for its income.">economic diversification</span> at the core of its targets. As per national foreign trade report, UAE’s non-oil foreign trade exceeded AED3.8 trillion with non-oil exports exceeding AED 813 billion by the end of 2025.</p>
+        <p>UAE’s diversification into non-oil sectors like finance, insurance etc helped cushion the oil shock caused by closure of <span class="term" tabindex="0" data-tip="The narrow sea passage between Iran and Oman that most Gulf oil exports have to pass through.">Strait of Hormuz</span>. The Federal Competitiveness and Statistics Centre (FCSC) announced that the UAE's <span class="term" tabindex="0" data-tip="The total value of goods and services an economy produces, adjusted for inflation so that years can be compared fairly.">real Gross Domestic Product (GDP)</span> reached AED 961.9 billion at <span class="term" tabindex="0" data-tip="Measured using a fixed base year's prices, so changes reflect real output rather than price rises.">constant prices</span> in the first half of 2026. Let’s break it quarter wise in order to understand the picture pre-war and post-war.</p>
+        <div class="table-wrap"><table><caption>Q1 2026 (Jan–Mar)</caption><thead><tr><th>Category</th><th>2025</th><th>2026</th><th>Change</th></tr></thead><tbody><tr><td>Total GDP</td><td>470.9</td><td>485.0</td><td class="pos">+3.0%</td></tr><tr><td>Non-oil</td><td>367.5</td><td>385.1</td><td class="pos">+4.8%</td></tr><tr><td>Oil</td><td>103.4</td><td>99.9</td><td class="neg">−3.4%</td></tr><tr><td>Non-oil share</td><td>78.0%</td><td>79.4%</td><td></td></tr></tbody></table></div><p class="table-note">UAE real GDP, AED billion (constant prices)</p>
+        <p>Note: Q1 2026 reflects figures from Jan, Feb and March where only March was the month post war. Even though GDP rose by 3%, one month of war led to a decline of 3.4% in oil contribution to GDP in Q1 2026 against Q1 2025</p>
+        <div class="table-wrap"><table><caption>Q2 2026 (Apr–Jun)</caption><thead><tr><th>Category</th><th>2025</th><th>2026</th><th>Change</th></tr></thead><tbody><tr><td>Total GDP</td><td>487.1</td><td>476.9</td><td class="neg">−2.1%</td></tr><tr><td>Non-oil</td><td>380.9</td><td>376.7</td><td class="neg">−1.1%</td></tr><tr><td>Oil</td><td>106.2</td><td>100.2</td><td class="neg">−5.7%</td></tr><tr><td>Non-oil share</td><td>78.2%</td><td>79.0%</td><td></td></tr></tbody></table></div><p class="table-note">UAE real GDP, AED billion (constant prices)</p>
+        <p>Note: The figures post war show a decline of 2.1% in overall Q2 GDP, with oil falling more steeply. Non-oil sector also had a 1.1% drop as war affected tourism, transport and trade. Non-oil contribution to GDP shows 79% which looks good as a number against 2025. Important to note that it happened because oil fell steeply, not because non-oil grew.</p>
+        <p>The above statistics show that UAE’s economy managed to absorb the oil shock, but not without damage. If disruptions ease, UAE economy is expected to grow by 7.3% in 2027 as per IMF’s 2026 <span class="term" tabindex="0" data-tip="The IMF's regular review of a member country's economy and policies, which ends with a growth outlook.">Article IV Mission</span> to the UAE. Much of that growth can come from oil as UAE will be able to monetize its growing oil capacity.</p>
+        <p>UAE’s decision to leave OPEC showed that the country prefers to control its own resources, prices, and choices and no longer wants to be tied to group decisions.</p>
+        <p>UAE is positioned as one of the region’s fastest growing economies supported by years of economic diversification efforts, infrastructure investment, and policies aimed at reducing reliance on oil. With its new found independence and soft power, UAE has the capability to pour oil on its troubled waters.</p>
+        <h3>What UAE should be looking at next</h3>
+        <ul>
+          <li><strong>“Neighbourhood first” policy like India</strong> – Develop cooperation among Gulf countries and solve geopolitical situation through negotiation and dialogue</li>
+          <li><strong>Developing home grown advanced defence capabilities</strong> – Invest in both human resources and research to develop defence systems</li>
+          <li><strong>Develop its eastern coastline as a broader energy-export corridor</strong> – Ensure timely delivery of Habshan-Fujairah line expansion along with creating more storage capacity in Fujairah.</li>
+        </ul>
+        <h3>Sources</h3>
+        <ul>
+          <li>How Dubai's safe-haven status is being put to the test | Reuters</li>
+          <li>Press Releases | Federal Competitiveness And Statistics Centre | UAE</li>
+          <li>‘We the UAE 2031’ vision | The Official Platform of the UAE Government</li>
+        </ul>
+        <h3>My learnings by writing this post</h3>
+        <ol>
+          <li>Helped me understand how UAE’s GDP is divided among different sectors.</li>
+          <li>Dubai is a major export hub for Chinese products to Africa. This has been compromised due to Hormuz closure.</li>
+          <li>UAE has strategically diversified its economy over the last few years.</li>
+          <li>UAE’s decision to leave OPEC was something that I had never expected would happen. To me, it shows the growing power of UAE as a country.</li>
+        </ol>
+        <p>I am planning to do a separate post about UAE growth and oil price regression. Having learnt it recently, I am excited to put it to use.</p>
       `
     }
   ];
