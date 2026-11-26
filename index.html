@@ -391,6 +391,10 @@
     }
     .modal-body ul, .modal-body ol { margin: 0 0 1rem 1.25rem; }
     .modal-body li { margin-bottom: 0.4rem; }
+    .modal-body .post-figure { margin: 1.25rem 0 1.5rem; }
+    .modal-body .post-figure svg { width: 100%; height: auto; display: block; }
+    .modal-body .post-figure figcaption { font-size: 12px; color: var(--text-hint); text-align: center; margin-top: 0.5rem; }
+    .modal-body a { color: var(--blue); text-underline-offset: 2px; }
     .modal-body .post-updated { font-size: 13px; color: var(--text-hint); font-style: italic; }
     .modal-body .table-wrap { overflow-x: auto; margin: 0.25rem 0 0.5rem; }
     .modal-body table {
@@ -753,7 +757,7 @@
           <span class="post-tag tag-market">Markets</span>
           <span class="post-date">June 2026 &middot; Updated Nov 2026</span>
         </div>
-        <h2>Why I decided to put my money in QQQ</h2>
+        <h2>Why queueing for QQQ only?</h2>
         <p class="post-excerpt">As a beginner, I had to choose between QQQ and VOO. Here are my three reasons for picking QQQ, and an update after the November AI sell-off and Jensen Huang's exit and return at Nvidia.</p>
         <span class="post-read">Read</span>
       </div>
@@ -763,11 +767,11 @@
       <div class="post-num">08</div>
       <div class="post-content">
         <div class="post-meta">
-          <span class="post-tag tag-market">Markets</span>
-          <span class="post-date">June 2026</span>
+          <span class="post-tag tag-macro">Macro</span>
+          <span class="post-date">June 2026 &middot; Updated Nov 2026</span>
         </div>
-        <h2>The Fed held rates. What does that actually mean for tech stocks?</h2>
-        <p class="post-excerpt">Interest rates and tech valuations move in opposite directions — but why? A plain-language explanation of how discount rates affect present value, and what it means for the stocks in this portfolio.</p>
+        <h2>The name is Bond. Treasury Bond.</h2>
+        <p class="post-excerpt">Bonds are one of the quiet heroes of financial markets, and the Fed is the boss giving the orders. What Treasuries are, why an old bond's price falls when rates rise, and what a dovish or hawkish Fed means for anyone holding one.</p>
         <span class="post-read">Read</span>
       </div>
     </div>
@@ -847,7 +851,7 @@
         <p>Fourth trade closed. I bought 28 shares of QQQ at $714.91 on August 21, held for 31 days, and sold at $740.57 on September 21 for a gain of $715.91, about 3.6%. It's the biggest gain of the four trades and by far the longest I've held anything. It also ran straight through the event my last two posts were about: the Federal Reserve's September decision.</p>
         <h3>The hike I was bracing for happened</h3>
         <p>On September 16 the Fed raised rates by 25 basis points to a range of 3.75% to 4.00%. The vote was unanimous, and it was the first hike since 2023. Chair Kevin Warsh was blunt: "The plain fact is that inflation is too high and has been for too long." The statement also noted that uncertainty "remains elevated owing, in part, to geopolitical developments," with oil now above $100 a barrel. The <span class="term" tabindex="0" data-tip="A chart of where each Fed policymaker expects interest rates to be in future. It's the clearest public signal of what the committee is likely to do next.">dot plot</span> points to more: 12 of the 18 policymakers expect one more hike this year.</p>
-        <p>By the logic of my June post on discount rates, this should have been bad for QQQ. Higher rates make the far-off earnings that growth stocks are priced on worth less today. So what happened? The Nasdaq Composite closed up 0.7% that day, and the 10-year Treasury yield actually fell about 4 basis points.</p>
+        <p>By basic discount-rate logic, this should have been bad for QQQ. Higher rates make the far-off earnings that growth stocks are priced on worth less today. So what happened? The Nasdaq Composite closed up 0.7% that day, and the 10-year Treasury yield actually fell about 4 basis points.</p>
         <h3>Why a hike didn't hurt: it was already in the price</h3>
         <p>The answer is the same lesson Broadcom taught me in the earnings post: markets react to surprises, not to news. After Warsh's Jackson Hole speech and the strong August jobs report, futures markets had put the odds of a September hike at over 60%. By the time the Fed acted, most investors had already sold what they were going to sell. The hike was <span class="term" tabindex="0" data-tip="When the expected outcome of an event is already reflected in today's price, so the event itself moves the price very little. Prices move on the gap between what happens and what was expected.">priced in</span>. What mattered on the day was the gap between what the Fed did and what markets feared it might do, and a single 25 basis point move with no sign of anything bigger counted as a relief.</p>
         <p>That relief didn't last cleanly, though. Two days later the 10-year yield hit 5.00% and the 2-year reached a 52-week high of 4.76%. Semiconductor stocks still rallied about 3% that day, but some analysts pointed out that the Nasdaq-100 hadn't made a new high since the decision, even while the S&amp;P 500 held up. When the market's leaders start lagging, that can mean something is shifting underneath.</p>
@@ -877,7 +881,7 @@
         <p>In IB Economics terms, these are two different mechanisms. A hot labor market with wages and hiring running ahead of expectations is <span class="term" tabindex="0" data-tip="Inflation caused by demand outpacing supply across the economy — strong hiring, rising wages, consumers spending freely. It's the kind interest rate hikes are specifically designed to cool, by making borrowing more expensive and spending less attractive.">demand-pull inflation</span> — exactly what a rate hike is built to treat, by cooling demand until it matches supply. An oil price spike from a supply disruption is <span class="term" tabindex="0" data-tip="Inflation caused by rising costs of production — like an oil shock or a supply-chain disruption — that push prices up regardless of how strong or weak demand actually is. Raising interest rates doesn't add oil supply, so it's a much blunter tool against this kind of inflation.">cost-push inflation</span> — a rate hike doesn't put a single extra barrel into the market, it just makes borrowing more expensive for households and companies who now also face higher pump prices. Headline CPI won't distinguish between the two. It will just be higher, for two unrelated reasons, at the exact moment the Fed has to decide.</p>
         <p>This is where I think the more interesting question isn't "will they hike" but "should they, given why prices are rising." A newly appointed chair who's spent his first months signaling inflation-fighting resolve has an incentive to hike anyway — not because it fixes an oil shock, but because backing off now, with headline inflation ticking up for any reason, risks looking like the Fed's word isn't good under pressure. That's less an economic argument than a credibility one, and it's a genuinely hard trade-off: look through a supply shock and risk seeming soft, or hike into it and risk tightening into a slowdown that higher rates can't actually fix at the source.</p>
         <h3>Where this leaves me</h3>
-        <p>The QQQ position I opened at $714.91 on August 21 is still open, and this is exactly the kind of setup where I'd rather understand the mechanism than guess the outcome. If the Fed hikes on September 16, the discount-rate logic from my post back in June applies directly — higher rates make the far-out earnings that growth stocks are priced on worth less today, and QQQ's most AI-capex-heavy names would likely feel that first. If the Fed holds despite the hawkish rhetoric, that could read as reassurance that this was more talk than action. Either way, I'm not trying to front-run the meeting. Six days is a short window to be right about something this genuinely uncertain, and "exit on a real reason, not a calendar" was the rule I set for myself after the second trade — this is a good test of whether I actually mean it.</p>
+        <p>The QQQ position I opened at $714.91 on August 21 is still open, and this is exactly the kind of setup where I'd rather understand the mechanism than guess the outcome. If the Fed hikes on September 16, basic discount-rate logic applies directly — higher rates make the far-out earnings that growth stocks are priced on worth less today, and QQQ's most AI-capex-heavy names would likely feel that first. If the Fed holds despite the hawkish rhetoric, that could read as reassurance that this was more talk than action. Either way, I'm not trying to front-run the meeting. Six days is a short window to be right about something this genuinely uncertain, and "exit on a real reason, not a calendar" was the rule I set for myself after the second trade — this is a good test of whether I actually mean it.</p>
       `
     },
     {
@@ -952,7 +956,7 @@
     {
       tag: 'Markets', tagClass: 'tag-market',
       date: 'June 2026 &middot; Updated Nov 2026',
-      title: 'Why I decided to put my money in QQQ',
+      title: 'Why queueing for QQQ only?',
       body: `
         <p class="post-updated">Originally written June 2026 &middot; Updated Nov 2026</p>
         <p>As a beginner in investing, two US ETFs stand out: QQQ (Nasdaq-100) and VOO (S&amp;P 500). I had three reasons to invest in QQQ.</p>
@@ -975,17 +979,123 @@
       `
     },
     {
-      tag: 'Markets', tagClass: 'tag-market',
-      date: 'June 2026',
-      title: 'The Fed held rates. What does that actually mean for tech stocks?',
+      tag: 'Macro', tagClass: 'tag-macro',
+      date: 'June 2026 &middot; Updated Nov 2026',
+      title: "The name is Bond. Treasury Bond.",
       body: `
-        <p>Every time there's a Fed announcement, financial news goes into overdrive. "Rates held." "Markets rally." "Tech stocks surge." The correlation is consistent enough that it's worth actually understanding the mechanism — not just noting that it happens.</p>
-        <h3>The discount rate idea</h3>
-        <p>A stock's price is theoretically the <span class="term" tabindex="0" data-tip="What a future sum of money is worth today, once you account for the fact that money now is worth more than the same amount later.">present value</span> of all its future earnings, discounted back to today. The <span class="term" tabindex="0" data-tip="The rate used to translate a future dollar of profit into what it's worth today. Higher rates make future earnings worth less right now.">discount rate</span> used is tied to interest rates. When rates rise, the discount rate rises, which means future earnings are worth less in today's money. When rates fall — or stay flat when the market expected a rise — the discount rate falls, and future earnings look more valuable.</p>
-        <p>Tech companies are disproportionately affected because their earnings are heavily weighted toward the future. A mature company like a utility earns money steadily now. A high-growth tech company earns relatively little today but (in theory) significantly more in five, ten, twenty years. That long-duration earnings profile makes it more sensitive to rate changes — the further out the earnings, the more the discount rate compounds.</p>
-        <h3>Why this matters for this portfolio</h3>
-        <p>Both NVDA and MSFT are <span class="term" tabindex="0" data-tip="Stocks trading at a high price relative to their current earnings, because investors expect much bigger profits in the future.">high-multiple stocks</span> — investors are paying significant premiums over current earnings based on growth expectations. That premium is implicitly a bet on the discount rate staying manageable. A rate environment that stays flat or falls is structurally supportive for these valuations.</p>
-        <p>This is part of the thesis, not just macro noise. I'll be re-evaluating if the rate picture changes materially in the second half of 2026.</p>
+        <p class="post-updated">Originally written June 2026 &middot; Updated Nov 2026</p>
+        <p>Just like there is the main hero Bond with M as his boss in the Bond world, we have Bonds as one of the heroes with Fed acting as its boss in the world of financial markets.</p>
+        <p>Bonds are an essential financial instrument for businesses and governments that issue them for capital projects and for investors as a safe investment. It is a promise by a government or corporation to pay a guaranteed return on money that investors lend to them for a specified length of time.</p>
+        <p>The federal government issues three major types of bonds:</p>
+        <ol>
+          <li>Treasury bills - short term and have a maturity period between 4 weeks and 1 year</li>
+          <li>Treasury notes - offer terms between 2 years and 10 years</li>
+          <li>Treasury bonds - terms from more than 10 years to 30 years.</li>
+        </ol>
+        <p>People often buy bonds from either governments or corporations because they are relatively safe investments that pay regular interest payments. Bonds can be bought directly from the government (new issue) or in the secondary market, known simply as the “bond market.” They can be held to maturity or sold in the bond market as well.</p>
+        <p>People who invest in bonds receive coupon payments at the agreed-upon interest (or coupon) rate. But perhaps you don't want to keep the bond for 5 years. This is where the bond market is useful. However, to sell an existing bond, the owner must consider the interest rate for newly issued bonds. This will determine the selling price of the existing bond.</p>
+        <p>Bond yield – is calculated by dividing the bond's annual coupon payment by its original price. So if an existing $1,000 bond pays $50 annually, its yield is 5%.</p>
+        <p>Let us understand what happens to the bond value in market when interest rate changes.</p>
+        <p>In economics and central banking, Fed's mood is usually described with two birds: a <span class="term" tabindex="0" data-tip="A Fed that leans towards cutting interest rates, or keeping them low, to support growth and jobs.">dovish</span> Fed cuts rates to support growth and jobs, while a <span class="term" tabindex="0" data-tip="A Fed that leans towards raising interest rates, or keeping them high, to bring inflation down.">hawkish</span> Fed raises them to fight inflation.</p>
+        <figure class="post-figure">
+<svg viewBox="0 0 560 745" role="img" aria-labelledby="bf-title bf-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="bf-title">How dovish and hawkish Fed moves change bond prices</title>
+<desc id="bf-desc">The Fed changes its policy rate. An existing 1,000 dollar bond pays a 5 percent coupon. A dovish Fed cuts, new bonds yield 4.5 percent, and the old bond sells at a premium. A hawkish Fed hikes, new bonds yield above 5 percent, the old bond sells at a discount, and capital rotates out of gold and commodities into bonds. Either way, bond prices and rates move in opposite directions. Real example: a May 2020 five-year Treasury yielded about 0.34 percent and a 2023 one about 3.58 percent, so the investor must sell the May 2020 note at a discount.</desc>
+<defs>
+<style>
+.bf-t{font-size:13px;font-weight:600;font-family:inherit}
+.bf-s{font-size:11.5px;font-weight:400;font-family:inherit}
+.bf-gray rect{fill:#F1EFE8;stroke:#B4B2A9}.bf-gray .bf-t{fill:#2C2C2A}.bf-gray .bf-s{fill:#5F5E5A}
+.bf-teal rect{fill:#E1F5EE;stroke:#1D9E75}.bf-teal .bf-t{fill:#085041}.bf-teal .bf-s{fill:#0F6E56}
+.bf-coral rect{fill:#FAECE7;stroke:#D85A30}.bf-coral .bf-t{fill:#712B13}.bf-coral .bf-s{fill:#993C1D}
+.bf-arr{stroke:#888780;stroke-width:1.2;fill:none}
+.bf-lg{font-size:11.5px;fill:#5F5E5A;font-family:inherit}
+.bf-hd{font-size:13px;font-weight:600;fill:#2C2C2A;font-family:inherit}
+</style>
+<marker id="bf-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+
+<g class="bf-gray"><rect x="130" y="10" width="300" height="48" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="280" y="34" text-anchor="middle" dominant-baseline="central">Fed changes policy rate</text></g>
+<line class="bf-arr" x1="280" y1="58" x2="280" y2="86" marker-end="url(#bf-arrow)"/>
+
+<g class="bf-gray"><rect x="130" y="90" width="300" height="54" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="280" y="108" text-anchor="middle" dominant-baseline="central">Existing $1,000 bond</text>
+<text class="bf-s" x="280" y="127" text-anchor="middle" dominant-baseline="central">Pays $50 a year = 5% coupon</text></g>
+
+<path class="bf-arr" d="M280 144 L280 162 L145 162 L145 172"/>
+<path class="bf-arr" d="M280 162 L415 162 L415 172"/>
+
+<g class="bf-teal"><rect x="95" y="172" width="100" height="24" rx="12" stroke-width="0.75"/>
+<text class="bf-t" x="145" y="184" text-anchor="middle" dominant-baseline="central">Dovish Fed</text></g>
+<g class="bf-coral"><rect x="360" y="172" width="110" height="24" rx="12" stroke-width="0.75"/>
+<text class="bf-t" x="415" y="184" text-anchor="middle" dominant-baseline="central">Hawkish Fed</text></g>
+
+<line class="bf-arr" x1="145" y1="196" x2="145" y2="220" marker-end="url(#bf-arrow)"/>
+<line class="bf-arr" x1="415" y1="196" x2="415" y2="220" marker-end="url(#bf-arrow)"/>
+
+<g class="bf-teal"><rect x="20" y="224" width="250" height="54" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="145" y="242" text-anchor="middle" dominant-baseline="central">Fed cuts: new bonds 4.5%</text>
+<text class="bf-s" x="145" y="261" text-anchor="middle" dominant-baseline="central">Rates fall below coupon</text></g>
+<g class="bf-coral"><rect x="290" y="224" width="250" height="54" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="415" y="242" text-anchor="middle" dominant-baseline="central">Fed hikes: new bonds &gt;5%</text>
+<text class="bf-s" x="415" y="261" text-anchor="middle" dominant-baseline="central">Rates rise above coupon</text></g>
+
+<line class="bf-arr" x1="145" y1="278" x2="145" y2="306" marker-end="url(#bf-arrow)"/>
+<line class="bf-arr" x1="415" y1="278" x2="415" y2="306" marker-end="url(#bf-arrow)"/>
+
+<g class="bf-teal"><rect x="20" y="310" width="250" height="54" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="145" y="328" text-anchor="middle" dominant-baseline="central">Old bond sells at premium</text>
+<text class="bf-s" x="145" y="347" text-anchor="middle" dominant-baseline="central">Price above $1,000 face</text></g>
+<g class="bf-coral"><rect x="290" y="310" width="250" height="54" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="415" y="328" text-anchor="middle" dominant-baseline="central">Old bond sells at discount</text>
+<text class="bf-s" x="415" y="347" text-anchor="middle" dominant-baseline="central">Price below $1,000 face</text></g>
+
+<line class="bf-arr" x1="145" y1="364" x2="145" y2="392" marker-end="url(#bf-arrow)"/>
+<line class="bf-arr" x1="415" y1="364" x2="415" y2="392" marker-end="url(#bf-arrow)"/>
+
+<g class="bf-teal"><rect x="20" y="396" width="250" height="54" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="145" y="414" text-anchor="middle" dominant-baseline="central">Holders keep or sell high</text>
+<text class="bf-s" x="145" y="433" text-anchor="middle" dominant-baseline="central">Capital gain on old bond</text></g>
+<g class="bf-coral"><rect x="290" y="396" width="250" height="54" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="415" y="414" text-anchor="middle" dominant-baseline="central">Capital rotates to bonds</text>
+<text class="bf-s" x="415" y="433" text-anchor="middle" dominant-baseline="central">Gold, commodities sold off</text></g>
+
+<path class="bf-arr" d="M145 450 L145 468 L280 468 L280 482" marker-end="url(#bf-arrow)"/>
+<path class="bf-arr" d="M415 450 L415 468 L280 468"/>
+
+<g class="bf-gray"><rect x="110" y="486" width="340" height="54" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="280" y="504" text-anchor="middle" dominant-baseline="central">Prices and rates move opposite</text>
+<text class="bf-s" x="280" y="523" text-anchor="middle" dominant-baseline="central">The core rule of bonds</text></g>
+
+<rect x="10" y="564" width="540" height="130" rx="12" fill="none" stroke="#B4B2A9" stroke-width="0.75" stroke-dasharray="4 4"/>
+<text class="bf-hd" x="26" y="588" dominant-baseline="central">Real example: 5-year Treasury notes</text>
+
+<g class="bf-gray"><rect x="25" y="604" width="140" height="70" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="95" y="629" text-anchor="middle" dominant-baseline="central">May 2020 note</text>
+<text class="bf-s" x="95" y="648" text-anchor="middle" dominant-baseline="central">About 0.34% yield</text></g>
+<line class="bf-arr" x1="167" y1="639" x2="191" y2="639" marker-end="url(#bf-arrow)"/>
+<g class="bf-gray"><rect x="195" y="604" width="140" height="70" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="265" y="629" text-anchor="middle" dominant-baseline="central">2023 new note</text>
+<text class="bf-s" x="265" y="648" text-anchor="middle" dominant-baseline="central">About 3.58% yield</text></g>
+<line class="bf-arr" x1="337" y1="639" x2="361" y2="639" marker-end="url(#bf-arrow)"/>
+<g class="bf-coral"><rect x="365" y="604" width="170" height="70" rx="8" stroke-width="0.75"/>
+<text class="bf-t" x="450" y="622" text-anchor="middle" dominant-baseline="central">Investor switches</text>
+<text class="bf-s" x="450" y="641" text-anchor="middle" dominant-baseline="central">Must sell May 2020 note</text>
+<text class="bf-s" x="450" y="656" text-anchor="middle" dominant-baseline="central">at a discount</text></g>
+
+<rect x="20" y="716" width="12" height="12" rx="3" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.75"/>
+<text class="bf-lg" x="38" y="722" dominant-baseline="central">Dovish: rates fall, prices rise</text>
+<rect x="290" y="716" width="12" height="12" rx="3" fill="#FAECE7" stroke="#D85A30" stroke-width="0.75"/>
+<text class="bf-lg" x="308" y="722" dominant-baseline="central">Hawkish: rates rise, prices fall</text>
+</svg>
+          <figcaption>How a change in the Fed's policy rate reprices a bond that already exists.</figcaption>
+        </figure>
+        <p>When Fed is dovish, interest rate is reduced. New bonds now pay only 4.5%. An old bond paying 5% is the better deal, so buyers will pay more than its $1,000 face value to get it.</p>
+        <p>When Fed is hawkish, interest rates are hiked. New bonds pay more than 5%, so nobody will pay $1,000 for a bond paying only 5%, and its price drops until its yield matches the market. Higher risk-free returns also pull money away from assets that pay nothing at all, such as gold and other commodities.</p>
+        <p>The 5-year Treasury shows how big this effect can be. A note bought in May 2020 yielded about 0.34%. Three years later, after the Fed's fastest run of rate hikes in decades, a new 5-year note yielded about 3.58%. Anyone who wanted to switch from the old note to the new one would have had to sell the old note at a discount, because it was worth much less in the market.</p>
+        <p>The rule for an existing bond stays the same: when new rates go up, its price goes down, and when new rates go down, its price goes up. Bond prices and interest rates always pull in opposite directions.</p>
+        <p class="post-updated">Further reading: <a href="https://www.stlouisfed.org/publications/page-one-economics/2023/11/03/why-do-bond-prices-and-interest-rates-move-in-opposite-directions" target="_blank" rel="noopener">"Why Do Bond Prices and Interest Rates Move in Opposite Directions?"</a>, Federal Reserve Bank of St. Louis, Page One Economics, November 2023 &middot; <a href="https://www.imf.org/en/publications/fandd/issues/2025/03/back-to-basics-bonds-and-yields-s-ali-abbas" target="_blank" rel="noopener">"Back to Basics: Bonds and Yields"</a>, S. Ali Abbas, IMF Finance &amp; Development, March 2025</p>
       `
     },
     {
